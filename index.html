@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- NFTBox 1.0-->
+    <title  > NFTBox- Stake your NFT and earn Token rewards! Create NFT Staking Project on Ethereum,Binance,Polygon,Cronos...</title>
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+       .btn-success {
+      background-color:#7cffcb;
+      background-image:linear-gradient(to right, rgba(55, 236, 186, 1), rgba(114, 175, 211, 1));
+      }
+      .btn-info {
+      background-color: #eec0c6;
+      background-image: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+      }
+      .btn-secondary {
+      background-color: #7f5a83;
+      background-image: linear-gradient(to right, rgba(106, 133, 182, 1), rgba(186, 200, 224, 1));
+      }
+      .btn-primary {
+      background-color: #2a2a72;
+      background-image: linear-gradient(to right, rgba(85, 221, 94, 1), rgba(102, 166, 255, 1));
+      }
+      .btn-warning {
+      background-color: #f8ceec;
+      background-image: linear-gradient(to right, rgba(94, 231, 223, 1), rgba(180, 144, 202, 1));
+      }
+      .btn- {
+      background-color: #b1bfd8;
+      background-image: linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%);
+      }
+      .btn-light {
+      background-color: #42378f;
+      background-image: linear-gradient(315deg, #758283 0%, #CAD5E2 74%);
+      }
+      .btn-danger {
+      background-color: #2a2a72;
+      background-image: (to right, rgba(166, 192, 254, 1), rgba(246, 128, 132, 1));
+      }
+            .btn-dark {
+      background-color: #2a2a72;
+      background-image: (to right, rgba(196, 113, 245, 1), rgba(250, 113, 205, 1));
+      }
+     
+      button{
+     
+      outline: none;
+      border:0px;
+      border-radius: 40px;
+   
+      margin:10px;
+      cursor: pointer;
+      color: #fff;
+      background-size: 280% 180%;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+      transition:all .4s ease-in-out;
+      border: 0px !important;
+      }
+      button:hover{
+      background-position: 90% 0;
+      transition: all .2s ease-in-out;
+      }
+
+
+
+
+        .loader{
+          position: fixed;
+          left: 50%;
+          top: 50%;
+          width: 100%;
+          height: 100%;
+          z-index: 9999;
+          
+          50% 50% no-repeat rgb(0,0,0,0);
+      }
+      .loader1 {
+        position: fixed;
+        left: 100%;
+        top: 100%;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        text-align: center;
+        background: url('loading.gif') 50% 50% no-repeat rgba(0,0,0,0.8);
+        vertical-align: middle;
+        color: #fff;
+
+    }
+
+
+    .rightIcon{
+        width: : 30px;
+    }
+
+
+    #loader1 {
+      width: 200px;
+      display: none;
+  }
+
+  #loader2 {
+      width: 200px;
+      display: none;
+  }
+
+
+  #loader3 {
+      width: 200px;
+      display: none;
+  }
+
+
+
+
+
+</style>
+
+<!-- Custom fonts for this template-->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link
+href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" >
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content" c >
+
+
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+
+                    <div class="row">
+                      <div class="col">
+
+                        <div class="row">
+
+                            <a href="/" ><img width="50" height="50" src="img/logo.png"> </a>
+                        </div>
+
+                        <div class="row text-dark">NFT Box</div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+
+                <form
+                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input id="LoadNFTInfoID" type="text" class="form-control bg-light border-1 small" placeholder="Search for NFT address..."
+                    aria-label="Search" aria-describedby="basic-addon2" oninput ="LoadStakeCards()">
+
+
+
+ <!--
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        -->
+
+                    </div>
+                </form>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+
+
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-search fa-fw"></i>
+                    </a>
+                    <!-- Dropdown - Messages -->
+                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                    aria-labelledby="searchDropdown">
+                    <form class="form-inline mr-auto w-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small"
+                            placeholder="Search for..." aria-label="Search"
+                            aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+                        <!-- Nav Item - Alerts 
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts 
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>-->
+                            <!-- Dropdown - Alerts 
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+                    -->
+                        <!-- Nav Item - Messages 
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages 
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>-->
+                            <!-- Dropdown - Messages 
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+                    -->
+                    
+                    <img id="SelectISendIMG" class="m-3"  width="33" height="33"  ></img>
+
+                    <li class="nav-item dropdown no-arrow">
+
+                      <select class="nav-link custom-select " id="SelectISend" onchange="ISendChange( )">
+
+
+                         <option value="56"  class="lang" key="Binance">Binance</option>
+                         <option value="137">Polygon </option>     
+                         <option value="25">Cronos</option> 
+                         <option value="534">Candle</option>                        
+                         <option value="4">Rinkeby TestChain</option> 
+
+<!--
+<option value="25">Cronos</option>  
+  <option value="1"  class="lang" key="Ethereum">Ethereum</option>
+  <option value="56"  class="lang" key="Binance">Binance</option>
+  <option value="128" class="lang" key="Huobi">Huobi</option>   
+  <option value="250">Fantom</option> 
+  <option value="43114">Avalanche</option>  
+    <option value="25">Cronos</option>  
+  <option value="3" >Ropsten Testnet Chain</option> 
+-->
+
+
+</select>
+
+</li>
+
+
+
+<li class=" my-auto mx-2 shadow ">
+<button type="button" class="btn btn-info   " onclick="LoadMarket()"> NFT Staking Market</button>
+</li>
+
+<!--
+<li class="nav-item dropdown no-arrow">
+ <a class="nav-link " href="#" id="LoadMarketID" role="button"
+ aria-haspopup="true" aria-expanded="false" onclick="LoadMarket()">
+ NFT Staking Market
+
+</a>
+</li>
+-->
+
+<li class="my-auto mx-2 shadow">
+<button type="button" class="btn btn-warning    " onclick="ShowCreateNFTCard()">Create NFT Staking Project</button>
+</li>
+<!--
+ <a class="nav-link " href="#" id="CreateNFTButtonID" role="button"
+ aria-haspopup="true" aria-expanded="false" onclick="ShowCreateNFTCard()">
+ Create NFT Staking Project
+
+</a>
+
+-->
+
+
+
+<li class="nav-item dropdown no-arrow">
+ <a class="nav-link " href="help.html" id="" role="button"
+ aria-haspopup="true" aria-expanded="false" >
+ Help
+
+</a>
+</li>
+
+
+<!-- language -->
+<li class="nav-item dropdown no-arrow">
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+    <img class="img-profile rounded-circle"
+    src="img/lang.png">
+</a>
+
+                            <!--
+<button id="en" class="translate">English</button>
+<button id="zh" class="translate">简体中文</button>
+<button id="ru" class="translate">русский</button> 
+<button id="kr" class="translate">한국어</button> 
+<button id="fa" class="translate">فارسی</button> 
+<button id="jp" class="translate">日本語</button> 
+<button id="th" class="translate">ไทย</button> 
+-->
+<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+aria-labelledby="userDropdown">
+<a id="en" class="dropdown-item translate" href="#">
+    <i  class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+    English
+</a>
+<a id="zh"  class="dropdown-item translate" href="#">
+    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400 translate"></i>
+    简体中文
+</a>
+
+
+
+
+<a id="ru"  class="dropdown-item translate" href="#">
+    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400 translate"></i>
+    русский
+</a>
+<a id="kr"  class="dropdown-item translate" href="#">
+    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400 translate"></i>
+    한국어
+</a>
+<!--     <div class="dropdown-divider"></div>-->
+
+</div>
+
+</li>
+<!-- language -->
+
+
+<div class="topbar-divider d-none d-sm-block"></div>
+
+
+
+
+
+<!-- Nav Item - User Information -->
+<li class="nav-item dropdown no-arrow">
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span  id='CurrentAddress' class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+    <img class="img-profile rounded-circle"
+    src="img/metamask.png">
+</a>
+                            <!-- Dropdown - User Information
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        -->
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+
+
+                <!-- Create stakeNFT Row -->
+                <div  class="row">
+                    <div class="col-md-12 ">
+                        <!-- Content Column -->
+
+                        <!-- card1 -->
+                        <div   id="CreateNFTCard" class="col-lg-12 mb-4" style="display: none; ">
+
+                            <!-- Illustrations -->
+                            <div class="card shadow  mb-4">
+                                <div class=" mx-auto py-3">
+                                 <center><img class="text-right" src="img/newcontract.png"></center><br>
+
+                                 <h6 class="m-0 font-weight-bold text-primary lang" key="EasyNFT">NFT Create Staking Project</h6>
+                             </div>
+
+
+                             <div class="card-body">
+
+
+
+
+
+                                <div class="text-xs font-weight-bold text-primary  mb-1 lang" key="NFT Collection Name">NFT Collection Addess you need stake</div>
+
+                                <input class="form-control form-control-user" type="text" id="NFTAddressID" oninput=""  
+                                placeholder="NFT Address">
+
+                                <br>
+                                <div class="text-xs font-weight-bold text-primary  mb-1 lang" key="NFT Collection Symbol">
+                                    Reward Token Name</div>
+                                    <input class="form-control form-control-user" type="text" id="NFTNameID" oninput="" aria-describedby="emailHelp"
+                                    placeholder="Tesla">
+
+
+                                    <br>
+                                    <div class="text-xs font-weight-bold text-primary  mb-1 lang" key="NFT Collection Symbol">Reward Token Symbol</div>
+                                    <input class="form-control form-control-user" type="text" id="NFTSymbolID" oninput="" aria-describedby="emailHelp"
+                                    placeholder="TSLA">
+
+                                    <br>
+                                    <div class="text-xs font-weight-bold text-primary  mb-1 lang" key="NFT Collection Symbol">Reaward Tokens / day (>=1)</div>
+                                    <input class="form-control form-control-user" type="text" id="ReawardVolumeID" oninput="" aria-describedby="emailHelp"
+                                    placeholder="1, 20 or 100...">
+
+                                    <br>
+                                    <div class="text-xs font-weight-bold text-primary  mb-1 lang" key="NFT Collection Symbol"> Logo image URL (size:64x64 <1M)</div>
+                                    <input class="form-control form-control-user" type="text" id="LogoURLID" oninput="" aria-describedby="emailHelp"
+                                    placeholder="https://www.x.com/logo.png">
+
+
+                                    <center>                          
+                                        <img id="loader2" src="loading.gif"></img>  
+                                    </center>  
+                                    <br>
+                                    <small class="text-muted" id="SendFeeText" >   </a></small>
+
+
+                                    <center><div id="CreateNFTtransactionHashLabel"></div></center> 
+
+
+
+                                    <center> 
+                                        <button id="CreateNFTButtonID" onclick="CreateNFTStakeContract();return false;" class="btn btn-primary">Create</button> 
+                                    </center> 
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card1 -->
+
+
+
+
+<!--
+
+                        <div  id="MintCard" class="col-lg-12 mb-4">
+
+                            
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary lang" key="EasyNFT">IStake</h6>
+                                </div>
+
+
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img  src="img/easy.png" width="60" height="60">
+                                    </div>
+
+
+
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4" key="Stake NFT Earn Tokens">IStake- Stake NFT Earn Tokens</h1>
+                                    </div>
+                                    <div class="text-center">
+
+                                  <h1 class="h6 text-gray-900 mb-4 lang" key="Upload multi NFT never so easy">Upload multi NFT never so easy</h1> 
+
+
+                                  </div>
+
+                                  <div class="card-body">
+                                     <div class="text-center">
+
+                                      <img id="SelectISendIMG"  width="33" height="33"  ></img>
+
+
+
+                                     
+
+ 
+                            </div></div>
+                            <br> 
+
+
+
+
+
+                            <form  >
+                                <div class="form-group">
+
+                                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 lang" key="NFT Description">
+                                    NFT Address</div>
+
+                            
+                                    <input class="form-control form-control-user"
+                                    type="text" id="LoadNFTInfoID" aria-describedby="emailHelp"
+                                    placeholder="Input NFT address you want to stake" oninput ="LoadStakeContractInfo()">
+
+                                    <small id="StakeContractInfoID" class="text-muted"  ></small>
+
+
+
+                                    <br>
+
+             
+
+
+
+
+
+
+
+
+
+                                    <br>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+                            </form>
+
+
+
+
+
+
+
+                           
+                              </div>  
+
+
+
+
+
+
+                          </div>
+
+                 
+
+                      </div>-->
+
+
+
+
+
+
+
+
+
+<!-- 
+<div id="BaseCardID"  class="col-lg-3 mb-4">
+          <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
+                                </div>
+                                <div class="card-body">
+
+                                
+<center>
+                                   <img  src=""  >
+                                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+
+ </center>
+
+
+                                </div>
+           </div>
+
+
+ </div>
+
+
+
+<div id="CardRowsID1" class="row"></div>
+
+-- >
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+<!-- /.container-fluid -->
+
+</div></div>
+<!--  create contract row  -->
+
+
+<div id="FindNFTRowID" class="row" style="display: none; ">
+
+
+</div>
+
+
+<div id="MarketID" class="row"  >
+
+
+</div>
+
+<div id="StakeUIID" class="row" style="display: none; "> <!--Stake UI-->
+    <div class="col-md-12 ">
+
+
+
+
+
+                    <!-- Page Heading 
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
+                -->
+                <!-- Content Row -->
+
+                <!--token and stake contract-->
+
+
+
+
+<!--
+<div class="row">
+
+                     
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Token Balance</div>
+                                            <div id="TokenBalanceID" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                  
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Stake Contract</div>
+                                            <div id="StakeContractID" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+           
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                            I Stake
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div id="IStakeID" class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                 
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Rewards Per Day </div>
+                                            <div id="RewardsPerDayID" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                -->
+    <!---   card Template
+
+    <div class="card shadow mb-4 rounded">
+        <img src=""   class="rounded">
+        <p>Name</p>
+        <p>Description</p>
+        <p></p>
+        <center>
+            <div class="row ">
+                <button id="" onclick="" class="btn btn-primary mx-auto">Create</button> 
+                <button id="" onclick="" class="btn btn-primary mx-auto">Create</button>  
+                <button id="" onclick="" class="btn btn-primary mx-auto">Create</button>  
+
+            </div>   
+        </center>
+
+
+    </div>
+-->
+
+<br> 
+
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="row ">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card1 l-bg-cherry">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-balance-scale"></i></div>
+                        <div class="mb-4">
+                            <h5 class="card-title mb-0">Token Balance</h5>
+                        </div>
+
+
+                        <div class="row align-items-center mb-2 d-flex">
+
+                            <div class="col-8">
+                                <h4 id="TokenBalanceID" class="d-flex align-items-center mx-auto">
+                                    -
+                                </h4>
+                            </div>
+
+                            <div class="col-4 text-right">
+                                <span>Tokens </span>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card1 l-bg-blue-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                        <div class="mb-4">
+                            <h5 class="card-title mb-0">Total Stake</h5>
+                        </div>
+
+
+                        <div class="row align-items-center mb-2 d-flex">
+
+                            <div class="col-4">
+                                <h4 id="TotalStakeID" class="d-flex align-items-center mx-auto">
+                                    -
+                                </h4>
+                            </div>                  
+                            <div class="col-8 text-right">
+                                <span id="ContractsID" > 
+
+                                </span>
+                            </div> 
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card1 l-bg-green-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
+                        <div class="mb-4">
+                            <h5 class="card-title mb-0">I Staked</h5>
+                        </div>
+
+
+                        <div class="row align-items-center mb-2 d-flex">
+
+                            <div class="col-8">
+                                <h4 id="IStakeID" class="d-flex align-items-center mx-auto">
+                                    -
+                                </h4>
+                            </div>
+
+                            <div class="col-4 text-right">
+                                <span>NFTs </span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card1 l-bg-orange-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-star"></i></div>
+                        <div class="mb-4">
+                            <h5 class="card-title mb-0">Rewards per day</h5>
+                        </div>
+
+
+                        <div class="row align-items-center mb-2 d-flex">
+
+                            <div class="col-8">
+                                <h4 id="RewardsPerDayID" class="d-flex align-items-center mx-auto">
+                                    -
+                                </h4>
+                            </div>
+
+                            <div class="col-4 text-right">
+                                <span >Tokens </span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--margin: 2rem;-->
+<style type="text/css">
+    .card1 {
+        background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        position: relative;
+        margin-bottom: 30px;
+        transition:.3s;
+        box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+    }
+
+
+    .card3 {
+        background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        position: relative;
+        margin-bottom: 30px;
+        transition:.3s;
+        box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+    }
+
+
+    .card{
+
+      transition:.3s;
+
+
+  }
+
+  .card .read-more:hover{
+    font-size: 14px;
+}
+
+.card:hover{
+    box-shadow: 8px 8px 8px grey;
+    transform:scale(1.1);
+}
+
+
+.card1 .read-more:hover{
+    font-size: 14px;
+}
+
+.card1:hover{
+    box-shadow: 8px 8px 8px grey;
+    transform:scale(1.05);
+}
+
+
+.l-bg-cherry1 {
+    background: linear-gradient(to right, #493240, #f09) !important;
+    color: #fff;
+}
+.l-bg-cherry {
+
+  background: linear-gradient(to right, rgba(20, 16, 203, 1), rgba(210, 15, 194, 1));
+  color: #fff;
+
+}
+
+
+
+
+.l-bg-blue-dark {
+    background: linear-gradient(to right, rgba(205, 10, 149, 1), rgba(166, 193, 238, 1));
+    color: #fff;
+}
+
+.l-bg-green-dark {
+    background: linear-gradient(to right, rgba(166, 192, 254, 1), rgba(213, 26, 33, 1));
+    color: #fff;
+}
+
+.l-bg-orange-dark {
+    background: linear-gradient(to right, rgba(94, 231, 223, 1), rgba(111, 10, 174, 1));
+    color: #fff;
+}
+
+.card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px;
+}
+
+.card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+}
+
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
+
+.l-bg-green {
+    background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+    color: #fff;
+}
+
+.l-bg-orange {
+    background: linear-gradient(to right, #f9900e, #ffba56) !important;
+    color: #fff;
+}
+
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
+
+</style>
+
+
+<div class="row">
+
+                        <!-- Earnings (Monthly) Card Example
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Earnings (Monthly)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- Earnings (Monthly) Card Example 
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Earnings (Annual)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    -->
+                        <!-- Earnings (Monthly) Card Example
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example 
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Pending Requests</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        
+
+
+                    </div>
+
+
+
+                    
+                    <!-- End of Main Content -->
+
+                    <div id="CardRowsID" class="row">
+                    </div>
+
+
+
+
+
+
+
+                    <div id="CenterLoaderID" class="spinner-border loader" role="status">
+
+                    </div>
+
+                </div> <!-- StakeUIID col-->
+            </div><!-- StakeUIID row-->
+
+
+            <br> <br>
+            <div  id="TipsBlock" class="row">
+                <!--   -->
+                <div class="col">
+                    <div class="shadow  border-left-info">
+                        <div id="Tips" class="p-3 mb-2 bg-light text-dark">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <br>
+
+
+  <!-- Footer -->
+<footer class="pt-4 my-md-5   shadow">
+    <div class="container  text-white">
+        <footer class="py-5">
+            <div class="row">
+                <div class="col-4">
+                    <h5> </h5>
+                    <ul class="nav flex-column">
+<li class="nav-item mb-2"><a href="https://dapp404.com/Token-Factory" class="nav-link p-0 text-dark ">Token Factory</a></li>
+<li class="nav-item mb-2"><a href="https://dapp404.com/Bee-Sender/" class="nav-link p-0 text-dark ">Bee Sender</a></li>
+<li class="nav-item mb-2"><a href="https://dapp404.com/Blockchain-To-Metamask/" class="nav-link p-0  text-dark">Chain List</a></li>
+
+
+                    </ul>
+                </div>
+
+                <div class="col-4">
+                    <h5> </h5>
+                    <ul class="nav flex-column">
+
+
+
+
+                    </ul>
+                </div>
+
+                <div class="col-4">
+                    <h5> </h5>
+                   <ul class="nav flex-column">
+
+
+<li class="nav-item mb-2"><a href="https://dapp404.com/Cryptocurrency-Paper-Wallet-Generator" class="nav-link p-0 text-dark">Paper Wallet Generator</a></li>
+
+
+
+<li class="nav-item mb-2"><a href="https://dapp404.com/Bulk-NFT-to-Opensea" class="nav-link p-0 text-dark">Bulk NFT</a></li>
+
+
+<li class="nav-item mb-2"><a href="https://dapp404.com/Stake-NFT" class="nav-link p-0 text-dark">NFT Box-NFT Staking Market</a></li>
+
+
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="d-flex justify-content-between text-dark py-4 my-4  ">
+                <p>© 2022 AlgoNetwork, All rights reserved.</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</footer>
+            <!-- End of Footer -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Staking NFT 2022</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+<!-- Bootstrap 5.2
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+-->
+
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins 
+    <script src="vendor/chart.js/Chart.min.js"></script>
+-->
+    <!-- Page level custom scripts
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+-->
+
+
+<script src="js/all.min.js"   crossorigin="anonymous"></script>
+<script src="js/contract.js"></script>
+<script src="js/FactoryContract.js"></script>
+
+<script src="js/token.js"></script>
+<script src="js/config.js"></script>
+<script src="js/global.js"></script>
+<!--https://code.jquery.com/jquery-3.5.1.slim.min.js-->
+<!--<script src="js/jquery-3.5.1.slim.min.js"    integrity=""></script>-->
+<script src="js/popper.min.js"  integrity=""></script>
+
+<!--https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js-->
+<!--<script src="js/bootstrap.min.js"       integrity=""     ></script>-->
+
+
+<script src='js/bignumber.js'></script>
+<script src="js/web3.min.js"></script>
+
+
+<!--<script src="js/ipfs.js"></script>-->
+<script type="module" src="https://cdn.jsdelivr.net/npm/nft.storage/dist/bundle.esm.min.js"></script>
+<!--https://cdn.jsdelivr.net/npm/nft.storage/dist/bundle.esm.min.js-->
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>-->
+
+
+        <script type="text/javascript">
+            var arrLang = {
+              'en': {
+                'SiteTitle': '',
+                'Ethereum': 'Ethereum',
+                'Binance': 'Binance',
+                'Huobi': 'Huobi',
+
+            },
+            'zh': {
+             'SiteTitle': '',
+             'Ethereum': '以太坊链',
+             'Binance': '币安链',
+             'Huobi': '火币链',   
+             'Create new NFT Collection':'生成新的NFT系列', 
+             'Create a NFT Collection':'生成一个NFT系列', 
+             'NFT Collection Name':'NFT系列名称', 
+             'NFT Collection Symbol':'NFT系列代号', 
+             'Easy NFT Bulk Uploader':'Easy NFT批量发布',
+             'Upload multi NFT never so easy':'同时上传多个NFT，从未如此简单。',
+             'Choose your NFT Collection':'选择您的NFT系列',
+             'Upload files':'上传文件 最大50个',
+             'NFT Description':'NFT描述',
+             'API help':'API帮助',
+             'Mint':'开始铸造'
+
+         },
+
+         'ru': {
+            'SiteTitle': '',
+            'Ethereum': 'Ethereum',
+            'Binance': 'Binance',
+            'Huobi': 'Huobi',
+            'Create new NFT Collection':'Создать новую коллекцию NFT', 
+            'Create a NFT Collection':'Создать коллекцию NFT', 
+            'NFT Collection Name':'Название коллекции NFT', 
+            'NFT Collection Symbol':'Символ коллекции NFT', 
+            'Easy NFT Bulk Uploader':'Простой массовый загрузчик NFT',
+            'Upload multi NFT never so easy':'Загрузка мульти NFT еще никогда не была такой простой',
+            'Choose your NFT Collection':'Выберите свою коллекцию NFT',
+            'Upload files':'Загрузить файлы Max:50',
+            'NFT Description':'Описание NFT',
+            'API help':'Справка по API',
+            'Mint':'Монетный двор'
+        },
+
+
+        'kr': {
+            'SiteTitle': '',
+            'Ethereum': 'Ethereum',
+            'Binance': 'Binance',
+            'Huobi': 'Huobi',
+            'Create new NFT Collection':'새 NFT 컬렉션 만들기', 
+            'Create a NFT Collection':'NFT 컬렉션 만들기', 
+            'NFT Collection Name':'NFT 컬렉션 이름', 
+            'NFT Collection Symbol':'NFT 컬렉션 기호', 
+            'Easy NFT Bulk Uploader':'쉬운 NFT 대량 업로더',
+            'Upload multi NFT never so easy':'멀티 NFT 업로드가 결코 쉽지 않습니다.',
+            'Choose your NFT Collection':'NFT 컬렉션 선택',
+            'Upload files':'파일 올리기 Max:50',
+            'NFT Description':'NFT 설명',
+            'API help':'API 도움말',
+            'Mint':'민트v'
+        },
+        'fa': {
+
+        },
+
+        'jp': {
+
+        },
+
+        'th': {
+
+        }
+
+    };
+
+    // Process translation
+    $(function() {
+      $('.translate').click(function() {
+        var lang = $(this).attr('id');
+        console.log("change language..");
+        $('.lang').each(function(index, item) {
+          $(this).text(arrLang[lang][$(this).attr('key')]);
+      });
+    });
+  });
+</script>
+
+
+
+<script>
+
+
+
+var _0x37a211=_0x2132;(function(_0xebfa9f,_0x44b492){var _0x2859f2=_0x2132,_0x4bd8fa=_0xebfa9f();while(!![]){try{var _0x24d412=-parseInt(_0x2859f2(0x312))/0x1*(-parseInt(_0x2859f2(0x2e9))/0x2)+parseInt(_0x2859f2(0x22c))/0x3*(parseInt(_0x2859f2(0x2d3))/0x4)+-parseInt(_0x2859f2(0x241))/0x5*(parseInt(_0x2859f2(0x2fb))/0x6)+-parseInt(_0x2859f2(0x24b))/0x7*(-parseInt(_0x2859f2(0x2d0))/0x8)+-parseInt(_0x2859f2(0x38f))/0x9+-parseInt(_0x2859f2(0x260))/0xa*(parseInt(_0x2859f2(0x364))/0xb)+parseInt(_0x2859f2(0x292))/0xc;if(_0x24d412===_0x44b492)break;else _0x4bd8fa['push'](_0x4bd8fa['shift']());}catch(_0x461687){_0x4bd8fa['push'](_0x4bd8fa['shift']());}}}(_0x5ca8,0x8abb7),console['log']('FeeReciever\x20Address:',FeeReciever),console[_0x37a211(0x1fa)](_0x37a211(0x345)),$(_0x37a211(0x1f8))['hide'](),$(_0x37a211(0x2e8))[_0x37a211(0x336)](),$(_0x37a211(0x1f2))[_0x37a211(0x336)]());function _0x2132(_0x269b37,_0x7c482b){var _0x5ca8fd=_0x5ca8();return _0x2132=function(_0x213270,_0x3293ab){_0x213270=_0x213270-0x1d6;var _0x577034=_0x5ca8fd[_0x213270];return _0x577034;},_0x2132(_0x269b37,_0x7c482b);}var BeeFee=0.0123456,binanceLimit,polygonLimit,fantomLimit,SendFee,MyTokenBalance,FactoryContract,TransferContract,TokenContract,NFTContractAddress,CurrentNFTName,StakeContractInfo,StakeContractAddress='',InputNFTAddress='',TokenAddress='',token,PriceResult,CurrentTokenDecimals=0x0,EthereumScan=_0x37a211(0x2c6),BinanceScan=_0x37a211(0x2e0),PolygonScan=_0x37a211(0x21c),FantomScan=_0x37a211(0x32e),CronosScan=_0x37a211(0x215),AvalancheScan=_0x37a211(0x275),CandleScan=_0x37a211(0x34c),RopstenScan='https://ropsten.etherscan.io/tx/',RinkebyScan='https://rinkeby.etherscan.io/tx/',RinkebyScanHome=_0x37a211(0x23c),PolygonScanHome='https://polygonscan.com/',BinanceScanHome=_0x37a211(0x2f6),EthereumScanHome='https://etherscan.io/',CronosScanHome=_0x37a211(0x367),CandleScanHome=_0x37a211(0x248),ScanHome;console['log'](_0x37a211(0x29c));var TokenContractAddress,BlockchainScan,OpenseaURL,RinkebyOpenseaURL='https://testnets.opensea.io/account',EthereumOpenseaURL=_0x37a211(0x239),PolygonOpenseaURL=_0x37a211(0x239),RopstenTokenAddress='',KovanTokenAddress='',binanceTokenAddress='',polygonTokenAddress='',fantomTokenAddress='',contractAdress,PolygonFactoryAddress=_0x37a211(0x286),RinkebyFactoryAddress=_0x37a211(0x222),BinanceFactoryAddress=_0x37a211(0x286),CronosFactoryAddress=_0x37a211(0x286),CandleFactoryAddress='0x96CDaC320c57834977a3F9Af818f652EfB99d41D',EthereumFactoryAddress='',RopstenAddress='',KovanAddress='',BinanceTestContractAddress='',EthereumContractAddress='',HuobiContractAddress='',BinanceContractAddress='',PolygonContractAddress='',FantomContractAddress='',AvalancheContractAddress='',CronosContractAddress='',RinkebyNFTAddress='0xB2C23cEB56f0cc60b99d26fCD7bA31B73656B4CE',Isend,Iwant;async function CheckMetamaskConnection(){var _0x239610=_0x37a211;if(window['ethereum']){window[_0x239610(0x28f)]=new Web3(window[_0x239610(0x302)]);try{return await ethereum[_0x239610(0x21d)](),window[_0x239610(0x302)]['on'](_0x239610(0x303),function(_0x563107){var _0x305ed3=_0x239610;console[_0x305ed3(0x1fa)](_0x305ed3(0x360),_0x563107),window[_0x305ed3(0x34f)]['reload']();}),window[_0x239610(0x302)]['on'](_0x239610(0x2ee),function(_0x4c0955){var _0x381041=_0x239610;console[_0x381041(0x1fa)]('networkChanged',_0x4c0955),window[_0x381041(0x34f)][_0x381041(0x2b0)]();}),!![];}catch(_0x54de7e){return![];}}else return window[_0x239610(0x28f)]?(window['web3']=new Web3(web3[_0x239610(0x2ec)]),!![]):(console[_0x239610(0x1fa)](_0x239610(0x380)),![]);}$(document)[_0x37a211(0x233)](async function(){var _0x1d7185=_0x37a211,_0x56749b=await CheckMetamaskConnection();if(_0x56749b){var _0x7f3478=!![];$('#SendDiffAmountDiv')[_0x1d7185(0x336)]();var _0x194581=await web3[_0x1d7185(0x37d)]['net'][_0x1d7185(0x271)]();console[_0x1d7185(0x1fa)](_0x194581);var _0x426721=![];switch(_0x194581){case 0x1:contractAdress=EthereumFactoryAddress,document[_0x1d7185(0x28e)](_0x1d7185(0x2dd))[_0x1d7185(0x352)]=0x1,document[_0x1d7185(0x28e)](_0x1d7185(0x318))['src']='img/'+String(0x1)+_0x1d7185(0x270),console['log'](_0x1d7185(0x2df)),BeeFee=EthereumFee,BlockchainScan=RinkebyScan,OpenseaURL=EthereumOpenseaURL,ScanHome=EthereumScanHome;break;case 0x2:console[_0x1d7185(0x1fa)](_0x1d7185(0x2b3));break;case 0x3:console[_0x1d7185(0x1fa)]('This\x20is\x20the\x20ropsten\x20test\x20network.'),TokenContractAddress=RopstenTokenAddress,contractAdress=RopstenAddress,document[_0x1d7185(0x28e)](_0x1d7185(0x2dd))[_0x1d7185(0x352)]=0x3,document[_0x1d7185(0x28e)](_0x1d7185(0x318))[_0x1d7185(0x2c1)]=_0x1d7185(0x217)+String(0x3)+'.png',BlockchainScan=RopstenScan,BeeFee=RopstenFee;break;case 0x4:contractAdress=RinkebyFactoryAddress,document[_0x1d7185(0x28e)](_0x1d7185(0x2dd))[_0x1d7185(0x352)]=0x4,document[_0x1d7185(0x28e)](_0x1d7185(0x318))['src']=_0x1d7185(0x217)+String(0x4)+'.png',console[_0x1d7185(0x1fa)]('This\x20is\x20the\x20Rinkeby\x20\x20network.'),BeeFee=RinkebyFee,BlockchainScan=RinkebyScan,OpenseaURL=RinkebyOpenseaURL,ScanHome=RinkebyScanHome,_0x426721=!![];break;case 0x19:console[_0x1d7185(0x1fa)](_0x1d7185(0x1de)),contractAdress=CronosFactoryAddress,document[_0x1d7185(0x28e)](_0x1d7185(0x2dd))[_0x1d7185(0x352)]=0x19,document[_0x1d7185(0x28e)](_0x1d7185(0x318))[_0x1d7185(0x2c1)]=_0x1d7185(0x217)+String(0x19)+_0x1d7185(0x270),BeeFee=CronosFee,BlockchainScan=CronosScan,ScanHome=CronosScanHome,_0x426721=!![];break;case 0x2a:console['log'](_0x1d7185(0x2cd)),TokenContractAddress=KovanTokenAddress,contractAdress=KovanAddress,document[_0x1d7185(0x28e)](_0x1d7185(0x2dd))['value']=0x2a;break;case 0x38:contractAdress=BinanceFactoryAddress,document['getElementById'](_0x1d7185(0x2dd))[_0x1d7185(0x352)]=0x38,document[_0x1d7185(0x28e)](_0x1d7185(0x318))[_0x1d7185(0x2c1)]=_0x1d7185(0x217)+String(0x38)+'.png',console[_0x1d7185(0x1fa)](_0x1d7185(0x25d)),BeeFee=BinanceFee,BlockchainScan=BinanceScan,ScanHome=BinanceScanHome,_0x426721=!![];break;case 0x61:contractAdress=BinanceTestContractAddress,console[_0x1d7185(0x1fa)](_0x1d7185(0x322));break;case 0x6c:console[_0x1d7185(0x1fa)](_0x1d7185(0x1e7));break;case 0x80:contractAdress=HuobiContractAddress,document['getElementById'](_0x1d7185(0x2dd))[_0x1d7185(0x352)]=0x80,document['getElementById'](_0x1d7185(0x318))['src']=_0x1d7185(0x217)+String(0x80)+_0x1d7185(0x270),console[_0x1d7185(0x1fa)]('This\x20is\x20the\x20huobi\x20\x20network.'),BeeFee=HuobiFee;break;case 0x89:contractAdress=PolygonFactoryAddress,document['getElementById'](_0x1d7185(0x2dd))[_0x1d7185(0x352)]=0x89,document['getElementById']('SelectISendIMG')[_0x1d7185(0x2c1)]=_0x1d7185(0x217)+String(0x89)+'.png',console[_0x1d7185(0x1fa)](_0x1d7185(0x2ce)),BeeFee=PolygonFee,BlockchainScan=PolygonScan,ScanHome=PolygonScanHome,_0x426721=!![];break;case 0xfa:TokenContractAddress=fantomTokenAddress,contractAdress=FantomContractAddress,document[_0x1d7185(0x28e)]('SelectISend')[_0x1d7185(0x352)]=0xfa,document[_0x1d7185(0x28e)](_0x1d7185(0x318))['src']=_0x1d7185(0x217)+String(0xfa)+_0x1d7185(0x270),console[_0x1d7185(0x1fa)](_0x1d7185(0x256)),BlockchainScan=FantomScan,BeeFee=FantomFee;break;case 0x216:contractAdress=CandleFactoryAddress,document[_0x1d7185(0x28e)]('SelectISend')[_0x1d7185(0x352)]=0x216,document[_0x1d7185(0x28e)](_0x1d7185(0x318))[_0x1d7185(0x2c1)]=_0x1d7185(0x217)+String(0x216)+'.png',console['log']('This\x20is\x20the\x20Candle\x20\x20network.'),BeeFee=CandleFee,BlockchainScan=CandleScan,OpenseaURL='',ScanHome=CandleScanHome,_0x426721=!![];break;case 0xa86a:TokenContractAddress=fantomTokenAddress,contractAdress=AvalancheContractAddress,document[_0x1d7185(0x28e)]('SelectISend')['value']=0xa86a,document['getElementById'](_0x1d7185(0x318))['src']=_0x1d7185(0x217)+String(0xa86a)+'.png',console['log']('This\x20is\x20the\x20Avalanche\x20\x20network.'),BlockchainScan=AvalancheScan,BeeFee=AvalancheFee;break;default:console[_0x1d7185(0x1fa)](_0x1d7185(0x311));}if(!_0x426721){$(_0x1d7185(0x374))['html'](_0x1d7185(0x2ca)),console['log'](_0x1d7185(0x33f));throw new Error('Not\x20in\x20range,Exit....');}var _0xdbb487=web3[_0x1d7185(0x2ec)][_0x1d7185(0x389)],_0x5a6222=web3[_0x1d7185(0x2ec)][_0x1d7185(0x389)],_0x1277b6=web3[_0x1d7185(0x2ec)][_0x1d7185(0x389)][_0x1d7185(0x344)]-0x4,_0x56ad65=_0x5a6222[_0x1d7185(0x225)](0x0,0x6),_0x841e10=_0x5a6222[_0x1d7185(0x225)](_0x1277b6,web3[_0x1d7185(0x2ec)]['selectedAddress'][_0x1d7185(0x344)]),_0x51ba2e=_0x56ad65+'.......'+_0x841e10;$(_0x1d7185(0x373))['html'](_0x51ba2e),FactoryContract=await new web3[(_0x1d7185(0x37d))]['Contract'](StakeFactoryABI,contractAdress,{'from':web3['currentProvider'][_0x1d7185(0x389)]}),SendFee=await FactoryContract['methods']['Fee']()[_0x1d7185(0x2ed)](),console['log'](_0x1d7185(0x254),SendFee),console[_0x1d7185(0x1fa)](_0x1d7185(0x2d5),web3[_0x1d7185(0x26b)][_0x1d7185(0x315)](BeeFee[_0x1d7185(0x27d)]())),SendFee=(BigInt(SendFee)+BigInt(web3['utils'][_0x1d7185(0x315)](BeeFee[_0x1d7185(0x27d)]())))[_0x1d7185(0x27d)](),console[_0x1d7185(0x1fa)]('This\x20SendFee:',SendFee),$(_0x1d7185(0x209))['html'](_0x1d7185(0x355)+web3['utils'][_0x1d7185(0x1ef)](SendFee)),LoadMarket();var _0x17be4c=web3[_0x1d7185(0x2ec)][_0x1d7185(0x389)],_0x1054d1,_0x1dacca,_0xf95ae7;async function _0x28eaf6(){var _0x4dd808=_0x1d7185,_0x21cfdc=await web3['eth'][_0x4dd808(0x283)][_0x4dd808(0x271)]();console[_0x4dd808(0x1fa)](_0x21cfdc);switch(_0x21cfdc){case 0x1:console[_0x4dd808(0x1fa)](_0x4dd808(0x350)),document['getElementById'](_0x4dd808(0x2dd))[_0x4dd808(0x352)]=0x1,document[_0x4dd808(0x28e)](_0x4dd808(0x318))[_0x4dd808(0x2c1)]=_0x4dd808(0x217)+String(0x1)+'.png';break;case 0x2:console[_0x4dd808(0x1fa)](_0x4dd808(0x2b3));break;case 0x3:console[_0x4dd808(0x1fa)](_0x4dd808(0x332)),TokenContractAddress=RopstenTokenAddress,contractAdress=RopstenAddress,document[_0x4dd808(0x28e)](_0x4dd808(0x2dd))[_0x4dd808(0x352)]=0x3;break;case 0x2a:console[_0x4dd808(0x1fa)](_0x4dd808(0x2cd)),TokenContractAddress=KovanTokenAddress,contractAdress=KovanAddress,document[_0x4dd808(0x28e)](_0x4dd808(0x2dd))['value']=0x2a;break;case 0x38:console['log'](_0x4dd808(0x25d)),TokenContractAddress=binanceTokenAddress,contractAdress=BinanceContractAddress,document['getElementById'](_0x4dd808(0x2dd))[_0x4dd808(0x352)]=0x38,document['getElementById'](_0x4dd808(0x318))[_0x4dd808(0x2c1)]=_0x4dd808(0x217)+String(0x38)+_0x4dd808(0x270);break;case 0x61:contractAdress=BinanceTestContractAddress,console[_0x4dd808(0x1fa)]('This\x20is\x20the\x20BSC\x20test\x20network.');break;case 0x6c:console[_0x4dd808(0x1fa)](_0x4dd808(0x1e7));break;case 0x80:console[_0x4dd808(0x1fa)](_0x4dd808(0x381));break;case 0x89:TokenContractAddress=polygonTokenAddress,contractAdress=PolygonContractAddress,document[_0x4dd808(0x28e)]('SelectISend')[_0x4dd808(0x352)]=0x89,document[_0x4dd808(0x28e)](_0x4dd808(0x318))['src']=_0x4dd808(0x217)+String(0x89)+_0x4dd808(0x270),console['log']('This\x20is\x20the\x20Polygon\x20\x20network.');break;case 0xfa:TokenContractAddress=fantomTokenAddress,contractAdress=FantomContractAddress,document[_0x4dd808(0x28e)](_0x4dd808(0x2dd))[_0x4dd808(0x352)]=0xfa,document['getElementById'](_0x4dd808(0x318))[_0x4dd808(0x2c1)]='img/'+String(0xfa)+_0x4dd808(0x270),console['log'](_0x4dd808(0x256));break;default:console[_0x4dd808(0x1fa)](_0x4dd808(0x311));}}function _0x2a0c10(){var _0x4c104a=_0x1d7185;fetch(_0x4c104a(0x1e8))[_0x4c104a(0x2e3)](_0x608b8e=>_0x608b8e[_0x4c104a(0x331)]())['then'](_0x59cab7=>{var _0x4057b8=_0x4c104a;const _0x3b1964=_0x59cab7[_0x4057b8(0x36e)];_0xcbe83c(_0x4057b8(0x250))[_0x4057b8(0x2b6)]=_0x4057b8(0x305)+_0x3b1964['current_price'][_0x4057b8(0x327)]['toFixed'](0x0),document['getElementById']('price')['value']=_0x3b1964[_0x4057b8(0x207)][_0x4057b8(0x327)][_0x4057b8(0x333)](0x0);});}function _0xcbe83c(_0xf143c2){var _0xb6e271=_0x1d7185;return document[_0xb6e271(0x28e)](_0xf143c2);}$(_0x1d7185(0x38d))[_0x1d7185(0x22e)](function(){var _0x250d66=_0x1d7185;$(_0x250d66(0x374))[_0x250d66(0x257)](''),$('#transactionHashLabel')[_0x250d66(0x257)](''),$('#loader1')[_0x250d66(0x20b)](),SendMultiToken();}),console[_0x1d7185(0x1fa)](_0x1d7185(0x346));}else console[_0x1d7185(0x1fa)](_0x1d7185(0x304)),$(_0x1d7185(0x374))[_0x1d7185(0x257)](_0x1d7185(0x359));});async function LoadStakeCards(){var _0x28df28=_0x37a211;$('#Tips')[_0x28df28(0x257)](''),$('#CreateNFTCard')[_0x28df28(0x336)](),$(_0x28df28(0x206))[_0x28df28(0x336)](),$(_0x28df28(0x2c4))[_0x28df28(0x336)](),$(_0x28df28(0x213))['show'](),console[_0x28df28(0x1fa)](_0x28df28(0x24d),InputNFTAddress),InputNFTAddress=document[_0x28df28(0x28e)]('LoadNFTInfoID')[_0x28df28(0x352)];try{const _0x1d57cf=web3[_0x28df28(0x26b)][_0x28df28(0x238)](InputNFTAddress);}catch(_0xd10706){console[_0x28df28(0x284)](_0x28df28(0x2a6),_0xd10706[_0x28df28(0x25e)]),document[_0x28df28(0x28e)]('LoadNFTInfoID')['disabled']=![],$(_0x28df28(0x273))[_0x28df28(0x257)](_0x28df28(0x22d));return;}$('#CenterLoaderID')['show'](),$(_0x28df28(0x273))[_0x28df28(0x257)](_0x28df28(0x29d)),document[_0x28df28(0x28e)](_0x28df28(0x386))[_0x28df28(0x356)]=!![],StakeContractInfo=await FactoryContract[_0x28df28(0x2cc)][_0x28df28(0x202)](InputNFTAddress)['call'](),console[_0x28df28(0x1fa)](_0x28df28(0x218),StakeContractInfo);if(StakeContractInfo[_0x28df28(0x344)]==0x0){console[_0x28df28(0x1fa)](_0x28df28(0x265)),$(_0x28df28(0x374))['html'](_0x28df28(0x37a)),$(_0x28df28(0x2e8))[_0x28df28(0x336)](),$(_0x28df28(0x273))[_0x28df28(0x257)](''),document['getElementById'](_0x28df28(0x386))[_0x28df28(0x356)]=![];return;}$(_0x28df28(0x29b))[_0x28df28(0x257)](_0x28df28(0x29d)),console['log'](_0x28df28(0x281),StakeContractAddress);for(let _0xaa50c5=0x0;_0xaa50c5<StakeContractInfo['length'];_0xaa50c5++){console[_0x28df28(0x1fa)](_0x28df28(0x246),StakeContractInfo[_0xaa50c5][_0x28df28(0x20a)]),console[_0x28df28(0x1fa)](_0x28df28(0x204),StakeContractInfo[_0xaa50c5][_0x28df28(0x20a)]),cardString='',cardString=_0x28df28(0x216),cardString+=_0x28df28(0x294),cardString+=_0x28df28(0x25a),cardString+=_0x28df28(0x1f3),cardString+='img/default.png',cardString+=_0x28df28(0x310),cardString+=_0x28df28(0x351),cardString+=_0x28df28(0x33a),cardString+=_0x28df28(0x299),cardString+='Stake\x20<a\x20href=\x22',cardString+=ScanHome+'address/'+StakeContractInfo[_0xaa50c5][_0x28df28(0x2a2)],cardString+='\x22\x20\x20target=\x22_blank\x22>'+StakeContractInfo[_0xaa50c5][_0x28df28(0x1e2)]+_0x28df28(0x2db),cardString+=_0x28df28(0x371),cardString+=ScanHome+_0x28df28(0x22a)+StakeContractInfo[_0xaa50c5][_0x28df28(0x2d8)],cardString+='\x22\x20target=\x22_blank\x22>',cardString+=StakeContractInfo[_0xaa50c5][_0x28df28(0x325)],cardString+=_0x28df28(0x1fe),cardString+=_0x28df28(0x232),cardString+='<center>\x20',cardString+=_0x28df28(0x227),cardString+=parseInt(StakeContractInfo[_0xaa50c5][_0x28df28(0x347)])/Math[_0x28df28(0x285)](0xa,0x14)+'\x20\x20'+StakeContractInfo[_0xaa50c5]['RewardTokenName']+_0x28df28(0x262),cardString+=_0x28df28(0x34e),cardString+=_0x28df28(0x351),StakeContractInfo[_0xaa50c5][_0x28df28(0x2f8)]&&(cardString+=_0x28df28(0x25a),cardString+=_0x28df28(0x27b),cardString+=_0x28df28(0x251),cardString+=_0x28df28(0x2fe),cardString+=_0x28df28(0x351)),cardString+=_0x28df28(0x33a),cardString+=_0x28df28(0x1e1),cardString+=_0x28df28(0x368),cardString+=_0xaa50c5,cardString+=_0x28df28(0x324),cardString+=_0x28df28(0x20d),cardString+=_0x28df28(0x390),cardString+=_0x28df28(0x351),cardString+=_0x28df28(0x33a),cardString+=_0x28df28(0x1e9),$(_0x28df28(0x213))[_0x28df28(0x34a)](cardString);}document[_0x28df28(0x28e)]('LoadNFTInfoID')['disabled']=![];}function _0x5ca8(){var _0x1cc377=['low','#seconds','Please\x20choose\x20a\x20valid\x20CSV\x20file,csv\x20file\x20name\x20are\x20English\x20letters\x20only,like:\x20abc123.csv','toChecksumAddress','https://opensea.io/account','reverse','#CardRowsID','https://rinkeby.etherscan.io/','</a>','claim\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract','\x22\x20target=\x22_blank\x22>','document.getElementById(\x27MultiSendAmount\x27).value','338945TAitRj','User\x20denied\x20transaction\x20or\x20other\x20situation','https://rpc-mainnet.matic.network','totalStaked','<h11\x20><a\x20class=\x22text-light\x22\x20href=\x22','StakeContractAddress:','<table\x20class=table>\x20\x20<tr>\x20\x20\x20','https://candleexplorer.com/','options','blockExplorerUrls','67165DKtlme','Start\x20UnStake\x20NFT..','InputNFTAddress:','Create\x20NFT\x20Stake\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract\x20or\x20less\x20than\x20100','UploadCSV','BTCPrice','Official','binanceLimit:','claim','Contract\x20fee','includes','This\x20is\x20the\x20Fantom\x20\x20network.','html','BNB','</div></center></div>','<center>\x20','color','toBN','This\x20is\x20the\x20BSC\x20\x20network.','message','#approveThisButton','320bopZMI','ReawardVolume...','\x20/Day','multiple-variable-equations','error.code','No\x20StakeContractInfo,need\x20create:','selectedIndex','Claim...','checked','multiSender\x20finish','This\x20browser\x20does\x20not\x20support\x20HTML5.','utils','empty','https://rpcapi.fantom.network','err','earned:','.png','getId','FTM','#StakeContractInfoID','#CreateNFTTipsID','https://snowtrace.io/tx/','IWantPrice:','TokenID','not\x20found\x20network,now\x20add\x20it\x20.','\x20</tr>','LoadStakeContractInfo...','<span\x20class=\x22badge\x20badge-success\x22>','stake','toString','You\x20dont\x20have\x20any\x20NFT\x20of\x20this\x20NFT\x20Collection.','#IStakeID','<p>','Default\x20StakeContractAddress:','\x20\x20<a\x20class=\x22text-light\x22\x20href=\x22','net','error','pow','0x96CDaC320c57834977a3F9Af818f652EfB99d41D','#SendSameAmountDiv','true','_ContractNetworkID','ISendInput','approveThis:invalid\x20ethereum\x20address','\x20target=\x22_blank\x22>','You\x20don\x27t\x20have\x20this\x20NFT','getElementById','web3','files','\x22\x20\x20width=\x2264\x22\x20height=\x2264\x22\x20class=\x22rounded\x22>','5470980xUyFXl','tokenOfOwnerByIndex','</h6><div\x20class=\x22card-body\x22>','Approval\x20failed!','Tips','green','NFTBalance:','<center><h4>','EndTime\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract','#stack','IsMetamask','Loading...','files\x20changed.','BNBPrice:','#EventTable','#SendUSDDescription','NFTAddress','Approval\x20receipt:','UseHighGasFee:\x20','ReawardVolumeID','invalid\x20\x20address','User\x20denied\x20transaction\x20or\x20other\x20situation.','#transactionHashLabel','This\x20is\x20the\x20Fantom\x20network.','User\x20reject\x20.','style','UnStake','earningInfo','floor','000000000000000000','reload','https://api.coingecko.com/api/v3/simple/price?ids=matic-network%2Cbnb%2Cethereum%2Cbinancecoin&vs_currencies=usd','isApproved:','This\x20is\x20the\x20deprecated\x20Morden\x20test\x20network.','trans_estimate_gas:','#OverTime','innerHTML','137','EndTime','</a><br>','trim','#StakeContractsID','tokensOfOwner','User\x20reject\x20switch\x20network.','result','Choice:\x20','onload','src','</tr>','<span>Hours</span>','#StakeUIID','multiSender','https://etherscan.io/tx/','Claim','AddressArea','EndTime:','Current\x20Blochchain\x20Network\x20is\x20not\x20support,Switch\x20to\x20Binance,Polygon\x20or\x20other\x20Blockchain\x20please.','IWantInput','methods','This\x20is\x20the\x20kovan\x20\x20network.','This\x20is\x20the\x20Polygon\x20\x20network.','totalFee:','344PSoSul','</td><td>','#fileUpload','12rDIPnb','fantomLimit:','BeeFee','#balanceOf','change','StackTokenAddress','Use\x20contract','reach\x20maximum\x20load\x20amount.','\x20NFT</a>','RewardPool','SelectISend','val','This\x20is\x20the\x20Ethereum\x20\x20network.','https://bscscan.com/tx/','ETHPrice:','</a></h11>','then','image','UnStake...','<button\x20id=\x22ApproveID\x22\x20onclick=\x22ApproveStake();\x22\x20class=\x22btn\x20btn-primary\x22>Approve\x20Stake</button>\x20\x20','networkId.','#CenterLoaderID','2BnscRE','map','\x20Load\x20user\x27s\x20NFT\x20Token\x20id...','currentProvider','call','networkChanged','NFTAddressID','polygonLimit:','<br>Get\x20<a\x20href=\x22','Field\x20should\x20not\x20be\x20empty.','\x20\x20...','undefined','contractAdress:','https://bscscan.com/','toLowerCase','isNFTowner','<a\x20\x20\x20href=\x22#\x22\x20id=\x22LoadMarketAfterCreateID\x22\x20role=\x22button\x22\x20aria-haspopup=\x22true\x22\x20aria-expanded=\x22false\x22\x20onclick=\x22LoadMarket()\x22>\x20Load\x20Market</a>','Already\x20approved!','30aiBMYA','#loader1','\x20setApprovalForAll\x20finish','</span>','Binance\x20Smart\x20Chain\x20Mainnet','tokenMetadataURI:','I\x20Send\x20','ethereum','accountsChanged','Metamask\x20not\x20detected','Bitcoin\x20Current\x20Price:\x20$','test','#hours','SendDiffAmountRadio','User\x20denied\x20transaction\x20signature','_AddressArray','isApprovedForAll','#CreateNFTtransactionHashLabel','<tr><td>','https://bsc-dataseed1.binance.org/','\x20claim\x20finish','\x22\x20\x20\x20class=\x22rounded\x22>','This\x20is\x20an\x20unknown\x20network.','751786ldorIS','Stake\x20<a\x20href=\x22','target','toWei','decimal\x20*\x2010:','addEventListener','SelectISendIMG','fill\x20your\x20token\x20-\x20address\x20first.','<span>Days</span>','https://polygonscan.com','insertCell','init\x20order\x20contractAdress:','RewardPool\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract','readAsText','one-variable-equations','<span>Seconds</span>','This\x20is\x20the\x20BSC\x20test\x20network.','Use\x20StakeContractAddress',')\x22>','RewardTokenName','#PriceSuggest','usd','Load\x20Market\x20Complete.','\x20\x20StakeContractInfo.length\x20','TokenAddress','Fantom\x20Opera','Please\x20choose\x20a\x20valid\x20CSV\x20file,\x20CSV\x20file\x20name\x20are\x20English\x20letters\x20only,like:\x20abc123.csv','Start\x20Claim\x20NFT..','https://ftmscan.com/tx/','fileUpload','start\x20read\x20csv...','json','This\x20is\x20the\x20ropsten\x20test\x20network.','toFixed','latest','getPastEvents','hide','_AddressArray:','approve','<center>\x20<h4>','\x20<br>','suggest\x20price:','ipfs://','files:','have\x20not\x20approved,please\x20approve\x20first!','Not\x20in\x20range,Exit','Matic','</p>\x20','push','</p>','length','start','Metamask\x20detected!','RewardVolume','insertRow','ether','append','tokenURI','https://candleexplorer.com/tx/','SelectIWant','</h4>','location','This\x20is\x20mainnet','</center>','value','finalAmount:','rpcUrls','Fee:','disabled','TokenAddress:','tokenId:','<div\x20class=\x27alert\x20alert-warning\x27\x20role=\x27alert\x27>\x20<a\x20\x20\x20href=\x27https://metamask.io/\x27>Metamask\x20not\x20install,Click\x20to\x20Install\x20Metamask\x20First</a></div>','_AmountArray:','element:','<button\x20class=\x22btn\x20btn-success\x20mx-auto\x22\x20type=\x22button\x22\x20onclick=\x22Stake(','ISendInputChange','Approval\x20hash:','NFTSymbolID','accountsChanges','returnValues','#SendDiffAmountDiv','getApproveStatus:','368522lCPLLc','<h4\x20\x20>','StakeContractAddress\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract\x20or\x20less\x20than\x20100','https://cronoscan.com/','<button\x20class=\x22btn\x20btn-primary\x20mr-1\x22\x20type=\x22button\x22\x20onclick=\x22SetNFTAddress(','img/56.png','_value','FetchURL:','<a\x20href=','decimals','market_data','\x22\x20\x20target=\x22_blank\x22>','MaticPrice:','\x20<br>Get\x20<a\x20href=\x22','FileID','#CurrentAddress','#Tips','#minutes','Contract','current\x20network\x20equl\x20Select\x20network\x20id.\x20does\x27nt\x20need\x20switch\x20metamask','fileUpload:','MultiSendAmount','The\x20NFT\x20queried\x20does\x20not\x20yet\x20have\x20a\x20corresponding\x20NFT\x20Staking\x20project,\x20and\x20a\x20new\x20one\x20needs\x20to\x20be\x20created.','Huobi\x20ECO\x20Chain\x20Mainnet','ReadCSVtoArrayOBJ:','eth','balanceOf','catch','Non-Ethereum\x20browser\x20detected.\x20You\x20should\x20consider\x20trying\x20MetaMask!','This\x20is\x20the\x20huobi\x20network.','binancecoin','wallet_switchEthereumChain','dvCSV','unstake\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract','LoadNFTInfoID','request','Start\x20Load\x20NFT\x20Market...','selectedAddress','Send\x20amount\x20or\x20address\x20should\x20not\x20be\x20empty','receipt:','NetworkIDIniterWant','#MultiSendButton','code','1963989iudMOl','</button>','getTime','Medium','receipt','LogoURLID','https://ftmscan.com/token/0x04068da6c83afcfa0e13ba15a6696662335d5b75','#RewardsPerDayID','hash:','Load\x20URL\x20Error:','https://http-mainnet.hecochain.com','#MintTips','This\x20is\x20the\x20Cronos\x20network.','<span>Minutes</span>','\x22\x20target=\x22_blank\x22>\x20TokenContract','<center>','StakeNFTName','send','Please\x20upload\x20a\x20valid\x20CSV\x20file.','0000000','RewardPool:','This\x20is\x20the\x20ThunderCore\x20\x20network.','https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&sparkline=false','</div>\x20\x20</div></div>','\x20Load\x20\x20\x20NFTContract...','CreateNFTtransactionHashLabel','ISendValue:','CreateContract','createElement','fromWei','unstake','https://bscscan.com/address/0x55d398326f99059ff775485246999027b3197955','#ApproveID','<img\x20src=\x22','StakeInfo:','read\x20csv\x20Error:','Can\x20not\x20read\x20This\x20token.','#loader2','#CreateNFTCard','transactionHash','log','amount:','appendChild','https://hecoinfo.com','\x20Tokens</a>','\x20<th>You\x20send</th>\x20','initOrder','Reward\x20coins\x20Pool:','getCreateRecord','Matic(Polygon)\x20Mainnet','StackTokenAddress:','split','#MarketID','current_price','TokenBalance:','#SendFeeText','StackContractAddress','show','NFTNameID','Join','#FileID','estimateGas','<center><div\x20class=\x22row\x22>','join','once','#FindNFTRowID','logo','https://cronoscan.com/tx/','<div\x20\x20class=\x22col-lg-3\x20mb-4\x22>\x20<div\x20class=\x22card\x20shadow\x20mb-4\x20read-more\x22>\x20\x20\x20<h6\x20class=\x22m-0\x20font-weight-bold\x20text-primary\x22>','img/','StakeContractInfo:','CurrentTokenDecimals:','multiSender\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract\x20or\x20less\x20than\x20100','Create\x20NFT\x20Stake\x20Contract\x20finish','https://polygonscan.com/tx/','enable','</table>','SendSameAmountRadio','Your\x20current\x20Blockchain\x20is\x20not\x20support,add\x20or\x20switch\x20now...','chainName','0xcFbC2f61Ba20Fae41D77710fb8631b09e44dB381','#days','\x20Load\x20StakeContract...','substring','low\x20gas','<h4\x20class=\x22mx-auto\x22>','matic-network','transactionHashLabel','address/','allEvents','577191PofUfZ','\x20Address\x20Wrong','click','#dvCSV','<p\x20class=\x22text-start\x22>\x20Earned:','\x22\x20\x20target=\x22_blank\x22>\x20StakeContract','</center></h4>','ready','Transaction\x20Hash:\x20'];_0x5ca8=function(){return _0x1cc377;};return _0x5ca8();}async function LoadStakeContractInfo(){var _0x15bbbe=_0x37a211;$(_0x15bbbe(0x374))[_0x15bbbe(0x257)](''),$(_0x15bbbe(0x1f8))[_0x15bbbe(0x336)](),$(_0x15bbbe(0x206))[_0x15bbbe(0x336)](),$(_0x15bbbe(0x2c4))[_0x15bbbe(0x20b)](),$(_0x15bbbe(0x213))['hide'](),$(_0x15bbbe(0x2a8))['html'](''),$(_0x15bbbe(0x23b))[_0x15bbbe(0x257)](''),$(_0x15bbbe(0x2bb))[_0x15bbbe(0x26c)](),console[_0x15bbbe(0x1fa)](_0x15bbbe(0x27a)),console['log'](_0x15bbbe(0x2d9),contractAdress),console[_0x15bbbe(0x1fa)](_0x15bbbe(0x24d),InputNFTAddress),console[_0x15bbbe(0x1fa)]('StakeContractAddress:',StakeContractAddress),console['log'](_0x15bbbe(0x357),TokenAddress);if(InputNFTAddress==''||StakeContractAddress==''||TokenAddress==''){console['log'](_0x15bbbe(0x26c));return;}var _0x36f5b=await new web3[(_0x15bbbe(0x37d))]['Contract'](NFTABI,InputNFTAddress,{'from':web3[_0x15bbbe(0x2ec)]['selectedAddress']});console[_0x15bbbe(0x1fa)](_0x15bbbe(0x2eb));var _0x31e72e=await _0x36f5b[_0x15bbbe(0x2cc)][_0x15bbbe(0x30b)](web3[_0x15bbbe(0x2ec)]['selectedAddress'],StakeContractAddress)[_0x15bbbe(0x2ed)]();console['log'](_0x15bbbe(0x2b2),_0x31e72e);if(!_0x31e72e){var _0x3dfe55=_0x15bbbe(0x2e6);$(_0x15bbbe(0x374))[_0x15bbbe(0x257)]('Please\x20Approve\x20Stake\x20before\x20you\x20stake\x20NFT...\x20\x20'+_0x3dfe55),$(_0x15bbbe(0x2e8))['hide']();}console['log'](_0x15bbbe(0x357),TokenAddress);var _0x1b68f2=await new web3['eth'][(_0x15bbbe(0x376))](TokenContractABI,TokenAddress,{'from':web3[_0x15bbbe(0x2ec)][_0x15bbbe(0x389)]});console[_0x15bbbe(0x1fa)](_0x15bbbe(0x2f3));var _0x3578fb=await _0x1b68f2[_0x15bbbe(0x2cc)][_0x15bbbe(0x37e)](web3[_0x15bbbe(0x2ec)][_0x15bbbe(0x389)])[_0x15bbbe(0x2ed)]();_0x3578fb=parseInt(_0x3578fb)/Math['pow'](0xa,0x12),console[_0x15bbbe(0x1fa)](_0x15bbbe(0x208),_0x3578fb),$('#TokenBalanceID')[_0x15bbbe(0x257)](_0x3578fb);var _0x21efc7=await _0x36f5b[_0x15bbbe(0x2cc)][_0x15bbbe(0x37e)](web3[_0x15bbbe(0x2ec)]['selectedAddress'])['call']();console[_0x15bbbe(0x1fa)](_0x15bbbe(0x298),_0x21efc7);var _0x34fa0b=await new web3[(_0x15bbbe(0x37d))][(_0x15bbbe(0x376))](StakeContractABI,StakeContractAddress,{'from':web3[_0x15bbbe(0x2ec)][_0x15bbbe(0x389)]});console[_0x15bbbe(0x1fa)](_0x15bbbe(0x224));var _0x5c3c4e=await _0x34fa0b['methods'][_0x15bbbe(0x2bc)](web3[_0x15bbbe(0x2ec)]['selectedAddress'])[_0x15bbbe(0x2ed)]();console[_0x15bbbe(0x1fa)](_0x15bbbe(0x1f4),_0x5c3c4e);var _0x3f4644=await _0x34fa0b[_0x15bbbe(0x2cc)][_0x15bbbe(0x347)]()[_0x15bbbe(0x2ed)]();_0x3f4644=parseInt(_0x3f4644)/Math[_0x15bbbe(0x285)](0xa,0x14),$(_0x15bbbe(0x1d9))['html'](_0x3f4644),console[_0x15bbbe(0x1fa)]('RewardsPerDay:',_0x3f4644);var _0x351338=await _0x34fa0b[_0x15bbbe(0x2cc)][_0x15bbbe(0x244)]()[_0x15bbbe(0x2ed)]();$('#TotalStakeID')[_0x15bbbe(0x257)](_0x351338);var _0x4bc46c=_0x15bbbe(0x245)+ScanHome+_0x15bbbe(0x22a)+StakeContractAddress+_0x15bbbe(0x231)+_0x15bbbe(0x23d),_0x33ce68=_0x15bbbe(0x282)+ScanHome+_0x15bbbe(0x22a)+TokenAddress+_0x15bbbe(0x1e0)+_0x15bbbe(0x2e2);if(_0x21efc7=='0'&&_0x5c3c4e[_0x15bbbe(0x344)]==0x0){console[_0x15bbbe(0x1fa)](_0x15bbbe(0x28d)),$('#Tips')['html'](_0x15bbbe(0x27e)),$(_0x15bbbe(0x273))['html'](''),$(_0x15bbbe(0x2e8))[_0x15bbbe(0x336)]();return;}await AddCard(_0x15bbbe(0x27c),_0x21efc7,_0x5c3c4e,_0x36f5b,_0x34fa0b),await AddCard('unstake',_0x21efc7,_0x5c3c4e,_0x36f5b,_0x34fa0b),$(_0x15bbbe(0x2e8))[_0x15bbbe(0x336)]();}async function AddCard(_0x51df8c,_0x98c010,_0x1c631f,_0x4bc7ee,_0x1e8425){var _0x250b04=_0x37a211,_0xec7ec,_0x473dd6;_0x51df8c=='unstake'?_0xec7ec=_0x98c010:(_0xec7ec=_0x1c631f['length'],$(_0x250b04(0x27f))[_0x250b04(0x257)](_0xec7ec));var _0x567d79;for(let _0x4940b3=0x0;_0x4940b3<_0xec7ec;_0x4940b3++){if(_0x4940b3>0x32){console[_0x250b04(0x1fa)](_0x250b04(0x2da));return;}var _0x1a5914;_0x51df8c=='unstake'?_0x1a5914=await _0x4bc7ee[_0x250b04(0x2cc)][_0x250b04(0x293)](web3[_0x250b04(0x2ec)]['selectedAddress'],_0x4940b3)[_0x250b04(0x2ed)]():(_0x1a5914=_0x1c631f[_0x4940b3],_0x473dd6=await _0x1e8425['methods'][_0x250b04(0x2ad)](web3[_0x250b04(0x2ec)][_0x250b04(0x389)],[_0x1a5914])[_0x250b04(0x2ed)](),_0x473dd6=parseInt(_0x473dd6)/Math['pow'](0xa,0x12),console[_0x250b04(0x1fa)](_0x250b04(0x26f),_0x473dd6));console['log'](_0x250b04(0x358),_0x1a5914);let _0x5c70d7=await _0x4bc7ee['methods'][_0x250b04(0x34b)](_0x1a5914)['call']();console['log'](_0x250b04(0x300),_0x5c70d7);if(_0x5c70d7=='')return;_0x5c70d7['startsWith'](_0x250b04(0x33c))&&(_0x5c70d7='https://ipfs.io/ipfs/'+_0x5c70d7[_0x250b04(0x205)](_0x250b04(0x33c))[0x1]);var _0x5efaa7;try{_0x5efaa7=await fetch(_0x5c70d7)['then'](_0x2500db=>_0x2500db[_0x250b04(0x331)]());}catch(_0x45f3c6){console[_0x250b04(0x1fa)](_0x250b04(0x1db),_0x45f3c6);}console[_0x250b04(0x1fa)]('tokenMetadata\x20name\x20',_0x5efaa7['name']),_0x567d79='',_0x567d79='<div\x20class=\x22card\x20shadow\x20mb-4\x20rounded\x20read-more\x22>',_0x567d79+=_0x250b04(0x1f3),_0x567d79+=_0x5efaa7[_0x250b04(0x2e4)],_0x567d79+=_0x250b04(0x310),_0x567d79+=_0x250b04(0x33a),_0x567d79+=_0x250b04(0x280),_0x567d79+=_0x5efaa7['name'],_0x567d79+='</p>',_0x567d79+=_0x250b04(0x280),_0x567d79+=_0x5efaa7['description'],_0x567d79+=_0x250b04(0x343),_0x51df8c==_0x250b04(0x27c)&&(_0x567d79+=_0x250b04(0x230),_0x567d79+=_0x473dd6,_0x567d79+=_0x250b04(0x341)),_0x567d79+=_0x250b04(0x210),_0x51df8c==_0x250b04(0x1f0)&&(_0x567d79+=_0x250b04(0x35c),_0x567d79+=_0x1a5914,_0x567d79+=_0x250b04(0x324),_0x567d79+='Stake',_0x567d79+=_0x250b04(0x390)),_0x51df8c==_0x250b04(0x27c)&&(_0x567d79+='<button\x20class=\x22btn\x20btn-secondary\x20mx-auto\x22\x20type=\x22button\x22\x20onclick=\x22UnStake(',_0x567d79+=_0x1a5914,_0x567d79+=_0x250b04(0x324),_0x567d79+=_0x250b04(0x2ac),_0x567d79+='</button>'),_0x51df8c=='stake'&&(_0x567d79+='<button\x20class=\x22btn\x20btn-primary\x20mx-auto\x22\x20type=\x22button\x22\x20onclick=\x22Claim(',_0x567d79+=_0x1a5914,_0x567d79+=_0x250b04(0x324),_0x567d79+=_0x250b04(0x2c7),_0x567d79+=_0x250b04(0x390)),_0x567d79+=_0x250b04(0x259),$(_0x250b04(0x23b))[_0x250b04(0x34a)](_0x567d79);}$(_0x250b04(0x273))['html'](''),document[_0x250b04(0x28e)]('LoadNFTInfoID')['disabled']=![];}async function Stake(_0x3c7ae1){var _0x2a51d9=_0x37a211;$(_0x2a51d9(0x374))['html']('Start\x20Stake\x20NFT..'),$(_0x2a51d9(0x2e8))[_0x2a51d9(0x20b)]();var _0x2b0679=await new web3[(_0x2a51d9(0x37d))][(_0x2a51d9(0x376))](StakeContractABI,StakeContractAddress,{'from':web3['currentProvider'][_0x2a51d9(0x389)]});console['log'](_0x2a51d9(0x224));var _0x45c855=[_0x3c7ae1];console['log'](_0x2a51d9(0x323),StakeContractAddress),console['log'](_0x2a51d9(0x277),_0x3c7ae1),await _0x2b0679[_0x2a51d9(0x2cc)][_0x2a51d9(0x27c)](_0x45c855)[_0x2a51d9(0x1e3)]({'from':web3['currentProvider'][_0x2a51d9(0x389)]},function(_0x25acee,_0x547658){var _0x3a395d=_0x2a51d9;!_0x25acee?console['log']('\x20StakeContractAddress\x20finish',_0x547658):(console[_0x3a395d(0x1fa)](_0x3a395d(0x366)),$(_0x3a395d(0x374))['html']('User\x20denied\x20transaction\x20or\x20Other\x20situation..'),$(_0x3a395d(0x2e8))['hide'](),_0x25acee[_0x3a395d(0x25e)][_0x3a395d(0x255)](_0x3a395d(0x309))&&(console[_0x3a395d(0x1fa)]('User\x20denied\x20transaction\x20signature'),$(_0x3a395d(0x2e8))[_0x3a395d(0x336)]()));})['once'](_0x2a51d9(0x1f9),function(_0x5692c2){var _0x4fb63f=_0x2a51d9;console['log'](_0x4fb63f(0x1da),_0x5692c2);var _0x48706e=BlockchainScan+_0x5692c2;$(_0x4fb63f(0x374))[_0x4fb63f(0x257)](_0x4fb63f(0x234)+'<a\x20href='+_0x48706e+_0x4fb63f(0x28c)+_0x5692c2+_0x4fb63f(0x23d));})[_0x2a51d9(0x212)](_0x2a51d9(0x1d6),function(_0x55e2e4){var _0x2579f7=_0x2a51d9;console[_0x2579f7(0x1fa)]('receipt:',_0x55e2e4),document[_0x2579f7(0x28e)](_0x2579f7(0x296))['style']['color']=_0x2579f7(0x297),$(_0x2579f7(0x2e8))[_0x2579f7(0x336)](),LoadStakeContractInfo();});}async function UnStake(_0xd8537c){var _0x4cec12=_0x37a211;$(_0x4cec12(0x2e8))[_0x4cec12(0x20b)](),console[_0x4cec12(0x1fa)](_0x4cec12(0x2e5)),$(_0x4cec12(0x374))[_0x4cec12(0x257)](_0x4cec12(0x24c));var _0x4400ac=await new web3[(_0x4cec12(0x37d))][(_0x4cec12(0x376))](StakeContractABI,StakeContractAddress,{'from':web3[_0x4cec12(0x2ec)][_0x4cec12(0x389)]});console[_0x4cec12(0x1fa)](_0x4cec12(0x224));var _0x106a80=[_0xd8537c];console['log'](_0x4cec12(0x323),StakeContractAddress),console[_0x4cec12(0x1fa)](_0x4cec12(0x277),_0xd8537c),await _0x4400ac[_0x4cec12(0x2cc)]['unstake'](_0x106a80)[_0x4cec12(0x1e3)]({'from':web3[_0x4cec12(0x2ec)][_0x4cec12(0x389)]},function(_0x215d1c,_0x26d19e){var _0xa41235=_0x4cec12;!_0x215d1c?console['log']('\x20unstake\x20finish',_0x26d19e):(console['log'](_0xa41235(0x385)),$(_0xa41235(0x374))[_0xa41235(0x257)](_0xa41235(0x2a7)),$(_0xa41235(0x2e8))[_0xa41235(0x336)](),_0x215d1c[_0xa41235(0x25e)]['includes'](_0xa41235(0x309))&&(console[_0xa41235(0x1fa)]('User\x20denied\x20transaction\x20signature'),$('#CenterLoaderID')[_0xa41235(0x336)]()));})[_0x4cec12(0x212)](_0x4cec12(0x1f9),function(_0x5d9d8e){var _0x416bbb=_0x4cec12;console[_0x416bbb(0x1fa)](_0x416bbb(0x1da),_0x5d9d8e);var _0x45cf67=BlockchainScan+_0x5d9d8e;$('#Tips')[_0x416bbb(0x257)](_0x416bbb(0x234)+_0x416bbb(0x36c)+_0x45cf67+_0x416bbb(0x28c)+_0x5d9d8e+_0x416bbb(0x23d));})['once'](_0x4cec12(0x1d6),function(_0x156f6e){var _0x3768e1=_0x4cec12;console[_0x3768e1(0x1fa)](_0x3768e1(0x38b),_0x156f6e),document[_0x3768e1(0x28e)]('Tips')[_0x3768e1(0x2ab)][_0x3768e1(0x25b)]='green',$(_0x3768e1(0x2e8))[_0x3768e1(0x336)](),LoadStakeContractInfo();});}async function Claim(_0x52b95e){var _0xd79337=_0x37a211;$(_0xd79337(0x374))['html'](_0xd79337(0x32d)),$(_0xd79337(0x2e8))[_0xd79337(0x20b)](),console['log'](_0xd79337(0x267));var _0x2adc2e=await new web3[(_0xd79337(0x37d))][(_0xd79337(0x376))](StakeContractABI,StakeContractAddress,{'from':web3[_0xd79337(0x2ec)][_0xd79337(0x389)]});console['log'](_0xd79337(0x224));var _0x3f2aa7=[_0x52b95e];console['log'](_0xd79337(0x323),StakeContractAddress),console[_0xd79337(0x1fa)](_0xd79337(0x277),_0x52b95e),await _0x2adc2e[_0xd79337(0x2cc)][_0xd79337(0x253)](_0x3f2aa7)[_0xd79337(0x1e3)]({'from':web3[_0xd79337(0x2ec)][_0xd79337(0x389)]},function(_0x5ee882,_0x32034d){var _0x38788f=_0xd79337;!_0x5ee882?console[_0x38788f(0x1fa)](_0x38788f(0x30f),_0x32034d):(console[_0x38788f(0x1fa)](_0x38788f(0x23e)),$(_0x38788f(0x374))[_0x38788f(0x257)](_0x38788f(0x242)),$(_0x38788f(0x2e8))[_0x38788f(0x336)](),_0x5ee882['message'][_0x38788f(0x255)](_0x38788f(0x309))&&(console[_0x38788f(0x1fa)](_0x38788f(0x309)),$('#CenterLoaderID')[_0x38788f(0x336)]()));})['once'](_0xd79337(0x1f9),function(_0x3012cc){var _0x63de49=_0xd79337;console[_0x63de49(0x1fa)](_0x63de49(0x1da),_0x3012cc);var _0x278cb4=BlockchainScan+_0x3012cc;$('#Tips')['html'](_0x63de49(0x234)+'<a\x20href='+_0x278cb4+_0x63de49(0x28c)+_0x3012cc+_0x63de49(0x23d));})['once'](_0xd79337(0x1d6),function(_0x31d9e0){var _0x37edf4=_0xd79337;console['log'](_0x37edf4(0x38b),_0x31d9e0),document[_0x37edf4(0x28e)](_0x37edf4(0x296))[_0x37edf4(0x2ab)][_0x37edf4(0x25b)]='green',$(_0x37edf4(0x2e8))[_0x37edf4(0x336)](),LoadStakeContractInfo();}),$(_0xd79337(0x2e8))[_0xd79337(0x336)]();}async function ApproveStake(){var _0x52c2d8=_0x37a211;InputNFTAddress==''&&(InputNFTAddress=document[_0x52c2d8(0x28e)]('LoadNFTInfoID')[_0x52c2d8(0x352)]);var _0x2b828b=await new web3[(_0x52c2d8(0x37d))]['Contract'](NFTABI,InputNFTAddress,{'from':web3[_0x52c2d8(0x2ec)]['selectedAddress']});console[_0x52c2d8(0x1fa)](_0x52c2d8(0x1ea)),await _0x2b828b[_0x52c2d8(0x2cc)]['setApprovalForAll'](StakeContractAddress,_0x52c2d8(0x288))[_0x52c2d8(0x1e3)]({'from':web3[_0x52c2d8(0x2ec)][_0x52c2d8(0x389)]},function(_0x1ad1ee,_0x251976){var _0x261990=_0x52c2d8;!_0x1ad1ee?console[_0x261990(0x1fa)](_0x261990(0x2fd),_0x251976):(console[_0x261990(0x1fa)]('setApprovalForAll\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract'),$('#Tips')[_0x261990(0x257)](_0x261990(0x242)),$(_0x261990(0x2e8))['hide'](),_0x1ad1ee[_0x261990(0x25e)][_0x261990(0x255)](_0x261990(0x309))&&(console[_0x261990(0x1fa)]('User\x20denied\x20transaction\x20signature'),$('#CenterLoaderID')[_0x261990(0x336)]()));})[_0x52c2d8(0x212)](_0x52c2d8(0x1f9),function(_0x56e1bf){var _0x509381=_0x52c2d8;console[_0x509381(0x1fa)]('hash:',_0x56e1bf);var _0x36d9ea=BlockchainScan+_0x56e1bf;$(_0x509381(0x374))[_0x509381(0x257)](_0x509381(0x234)+'<a\x20href='+_0x36d9ea+_0x509381(0x28c)+_0x56e1bf+_0x509381(0x23d));})['once'](_0x52c2d8(0x1d6),function(_0x1cb6e8){var _0x2d58dd=_0x52c2d8;console[_0x2d58dd(0x1fa)](_0x2d58dd(0x38b),_0x1cb6e8),document[_0x2d58dd(0x28e)](_0x2d58dd(0x296))[_0x2d58dd(0x2ab)][_0x2d58dd(0x25b)]=_0x2d58dd(0x297),$(_0x2d58dd(0x2e8))[_0x2d58dd(0x336)](),window[_0x2d58dd(0x34f)][_0x2d58dd(0x2b0)]();});}async function LoadMarket(){var _0x58d58b=_0x37a211;$(_0x58d58b(0x374))[_0x58d58b(0x257)](_0x58d58b(0x388)),$('#CenterLoaderID')[_0x58d58b(0x20b)](),$(_0x58d58b(0x206))[_0x58d58b(0x257)](''),$('#CreateNFTCard')[_0x58d58b(0x336)](),$(_0x58d58b(0x206))[_0x58d58b(0x20b)](),$(_0x58d58b(0x2c4))['hide'](),$('#FindNFTRowID')[_0x58d58b(0x336)](),StakeContractInfo=await FactoryContract[_0x58d58b(0x2cc)]['getContracts']()['call'](),console[_0x58d58b(0x1fa)](_0x58d58b(0x218),StakeContractInfo);if(StakeContractInfo[_0x58d58b(0x344)]==0x0){$(_0x58d58b(0x374))['html']('Load\x20market\x20complete.');return;}for(let _0x4b9d18=0x0;_0x4b9d18<StakeContractInfo[_0x58d58b(0x344)];_0x4b9d18++){console['log'](_0x58d58b(0x329),StakeContractInfo[_0x58d58b(0x344)]),cardString='',cardString=_0x58d58b(0x216),cardString+='</h6><div\x20class=\x22card-body\x22>',cardString+='<center>\x20',cardString+=_0x58d58b(0x1f3),cardString+=StakeContractInfo[_0x4b9d18][_0x58d58b(0x214)],cardString+=_0x58d58b(0x291),cardString+=_0x58d58b(0x351),cardString+=_0x58d58b(0x33a),cardString+=_0x58d58b(0x339),cardString+=_0x58d58b(0x313),cardString+=ScanHome+_0x58d58b(0x22a)+StakeContractInfo[_0x4b9d18][_0x58d58b(0x2a2)],cardString+=_0x58d58b(0x36f)+StakeContractInfo[_0x4b9d18][_0x58d58b(0x1e2)]+_0x58d58b(0x2db),cardString+=_0x58d58b(0x2f1),cardString+=ScanHome+_0x58d58b(0x22a)+StakeContractInfo[_0x4b9d18]['StackTokenAddress'],cardString+=_0x58d58b(0x23f),cardString+=StakeContractInfo[_0x4b9d18][_0x58d58b(0x325)],cardString+=_0x58d58b(0x1fe),cardString+=_0x58d58b(0x232),cardString+=_0x58d58b(0x25a),cardString+=_0x58d58b(0x365),cardString+=parseInt(StakeContractInfo[_0x4b9d18]['RewardVolume'])/Math['pow'](0xa,0x14)+'\x20\x20'+StakeContractInfo[_0x4b9d18][_0x58d58b(0x325)]+_0x58d58b(0x262),cardString+='</h4>',cardString+=_0x58d58b(0x351),StakeContractInfo[_0x4b9d18][_0x58d58b(0x2f8)]&&(cardString+=_0x58d58b(0x25a),cardString+=_0x58d58b(0x27b),cardString+=_0x58d58b(0x251),cardString+='</span>',cardString+=_0x58d58b(0x351)),cardString+=_0x58d58b(0x33a),cardString+=_0x58d58b(0x1e1),cardString+='<button\x20class=\x22btn\x20btn-primary\x20mr-1\x22\x20type=\x22button\x22\x20onclick=\x22SetNFTAddress(',cardString+=_0x4b9d18,cardString+=')\x22>',cardString+='Join',cardString+=_0x58d58b(0x390),cardString+=_0x58d58b(0x351),cardString+=_0x58d58b(0x33a),cardString+=_0x58d58b(0x1e9),$(_0x58d58b(0x206))[_0x58d58b(0x34a)](cardString);}$(_0x58d58b(0x2e8))[_0x58d58b(0x336)](),$(_0x58d58b(0x374))[_0x58d58b(0x257)](_0x58d58b(0x328));}async function SetNFTAddress(_0x5f270b){var _0xaef7e6=_0x37a211;$(_0xaef7e6(0x206))[_0xaef7e6(0x336)](),InputNFTAddress=StakeContractInfo[_0x5f270b][_0xaef7e6(0x2a2)],StakeContractAddress=StakeContractInfo[_0x5f270b][_0xaef7e6(0x20a)],TokenAddress=StakeContractInfo[_0x5f270b]['StackTokenAddress'],console['log']('NFTAddress',InputNFTAddress),console['log'](_0xaef7e6(0x20a),StakeContractAddress),console[_0xaef7e6(0x1fa)]('StackTokenAddress',TokenAddress),LoadStakeContractInfo();}async function LoadJson(_0x5580bb){var _0x12e3a1=_0x37a211;console[_0x12e3a1(0x1fa)](_0x5580bb);var _0x186838;try{const _0x417a69=await fetch(_0x5580bb);_0x186838=await _0x417a69[_0x12e3a1(0x331)](),console['log'](_0x12e3a1(0x331),_0x186838);}catch(_0x825d95){console[_0x12e3a1(0x284)](_0x12e3a1(0x26e),_0x825d95);}}async function GetEvents(_0x361072,_0x6b6b4b){var _0x24c004=_0x37a211,_0x136571;await _0x361072[_0x24c004(0x335)](_0x24c004(0x22b),{'fromBlock':0x17df81,'toBlock':_0x24c004(0x334)})[_0x24c004(0x2e3)](_0x366e2f=>_0x136571=_0x366e2f)[_0x24c004(0x37f)](_0x46eb37=>console['error'](_0x46eb37));var _0x56f014=_0x136571;console['log'](_0x56f014),templateString=_0x24c004(0x247)+'<th>Initer\x20Want</th>\x20'+_0x24c004(0x1ff)+'\x20<th>You\x20get</th>\x20\x20'+'\x20<th>Initer\x20Network</th>\x20\x20'+_0x24c004(0x279),$['each'](_0x56f014,function(_0x2123fe){var _0x5c7cb5=_0x24c004;_0x56f014[_0x2123fe][_0x5c7cb5(0x361)][_0x5c7cb5(0x200)]=='1'&&_0x56f014[_0x2123fe][_0x5c7cb5(0x361)]['NetworkIDIniterWant']==_0x6b6b4b&&(templateString+=_0x5c7cb5(0x30d)+_0x56f014[_0x2123fe][_0x5c7cb5(0x361)][_0x5c7cb5(0x38c)]+_0x5c7cb5(0x2d1)+web3[_0x5c7cb5(0x26b)]['fromWei'](_0x56f014[_0x2123fe][_0x5c7cb5(0x361)]['AmountIniterWant'],_0x5c7cb5(0x349))+_0x5c7cb5(0x2d1)+web3[_0x5c7cb5(0x26b)][_0x5c7cb5(0x1ef)](_0x56f014[_0x2123fe][_0x5c7cb5(0x361)][_0x5c7cb5(0x36a)],_0x5c7cb5(0x349))+_0x5c7cb5(0x2d1)+_0x56f014[_0x2123fe]['returnValues'][_0x5c7cb5(0x289)]+'</td>\x20\x20'+_0x5c7cb5(0x2c2));}),templateString+=_0x24c004(0x21e),$(_0x24c004(0x2a0))[_0x24c004(0x34a)](templateString);}async function getPairPrice(){var _0x1d0f6a=_0x37a211,_0x2273ee=ISendobj[_0x1d0f6a(0x249)][ISendobj[_0x1d0f6a(0x266)]]['value'],_0x5da438=IWantobj[_0x1d0f6a(0x249)][IWantobj[_0x1d0f6a(0x266)]]['value'];console[_0x1d0f6a(0x1fa)](_0x1d0f6a(0x1ec),_0x2273ee),console[_0x1d0f6a(0x1fa)]('IWantValue:',_0x5da438),FetchURL=_0x1d0f6a(0x2b1),console[_0x1d0f6a(0x1fa)](_0x1d0f6a(0x36b),FetchURL),fetch(FetchURL)[_0x1d0f6a(0x2e3)](_0x1d437a=>_0x1d437a[_0x1d0f6a(0x331)]())[_0x1d0f6a(0x2e3)](_0x117867=>{var _0x2b079b=_0x1d0f6a,_0x2896cd=_0x117867[_0x2b079b(0x302)][_0x2b079b(0x327)],_0x523ffc=_0x117867[_0x2b079b(0x382)][_0x2b079b(0x327)],_0x47c980=_0x117867[_0x2b079b(0x228)][_0x2b079b(0x327)];console[_0x2b079b(0x1fa)](_0x2b079b(0x2e1),_0x2896cd),console[_0x2b079b(0x1fa)](_0x2b079b(0x29f),_0x523ffc),console['log'](_0x2b079b(0x370),_0x47c980);var _0xe6b9a,_0x2e021b;if(_0x2273ee=='56')_0xe6b9a=_0x523ffc;else{if(_0x2273ee==_0x2b079b(0x2b7))_0xe6b9a=_0x47c980;else _0x2273ee=='1'&&(_0xe6b9a=_0x2896cd);}if(_0x5da438=='56')_0x2e021b=_0x523ffc;else{if(_0x5da438=='137')_0x2e021b=_0x47c980;else _0x5da438=='1'&&(_0x2e021b=_0x2896cd);}return console[_0x2b079b(0x1fa)]('ISendPrice:',_0xe6b9a),console[_0x2b079b(0x1fa)](_0x2b079b(0x276),_0x2e021b),PriceResult=_0xe6b9a/_0x2e021b,console['log'](_0x2b079b(0x33b),PriceResult[_0x2b079b(0x333)](0x12)),$(_0x2b079b(0x326))['html'](PriceResult[_0x2b079b(0x333)](0x12)),ISendInputChange(),PriceResult;});}async function CreateNFTStakeContract(){var _0x352110=_0x37a211;$(_0x352110(0x1f7))[_0x352110(0x20b)]();var _0x194c57=document['getElementById'](_0x352110(0x2ef))[_0x352110(0x352)],_0x172410=document[_0x352110(0x28e)](_0x352110(0x20c))[_0x352110(0x352)],_0x22950a=document['getElementById'](_0x352110(0x35f))[_0x352110(0x352)],_0x696b52=document[_0x352110(0x28e)](_0x352110(0x2a5))[_0x352110(0x352)],_0x428fa8=document['getElementById'](_0x352110(0x1d7))[_0x352110(0x352)];_0x696b52=BigInt(_0x696b52)*BigInt(Math[_0x352110(0x285)](0xa,0x14)),console[_0x352110(0x1fa)](_0x352110(0x261),_0x696b52),_0x696b52=_0x696b52[_0x352110(0x27d)]();if(_0x194c57==''||_0x172410==''||_0x22950a==''||_0x696b52==''){$(_0x352110(0x274))['html'](_0x352110(0x2f2)),$('#loader2')[_0x352110(0x336)]();return;}var _0x38decc=await new web3[(_0x352110(0x37d))][(_0x352110(0x376))](StakeFactoryABI,contractAdress,{'from':web3[_0x352110(0x2ec)][_0x352110(0x389)]});console[_0x352110(0x1fa)]('CreateNFTContract...');var _0x5103e2=web3[_0x352110(0x26b)][_0x352110(0x315)](BeeFee['toString']()),_0xf2286d='';await _0x38decc[_0x352110(0x2cc)][_0x352110(0x1ed)](FeeReciever,_0x5103e2,_0x194c57,_0x172410,_0x22950a,_0x696b52,_0x428fa8)[_0x352110(0x1e3)]({'from':web3[_0x352110(0x2ec)]['selectedAddress'],'value':SendFee},function(_0x599009,_0x4ae104){var _0x54af62=_0x352110;!_0x599009?console['log'](_0x54af62(0x21b),_0x4ae104):(console['log'](_0x54af62(0x24e)),$(_0x54af62(0x274))['html'](_0x54af62(0x242)),$(_0x54af62(0x1f7))[_0x54af62(0x336)](),_0x599009[_0x54af62(0x25e)][_0x54af62(0x255)](_0x54af62(0x309))&&(console[_0x54af62(0x1fa)]('User\x20denied\x20transaction\x20signature'),$('#loader2')['hide']()));})[_0x352110(0x212)](_0x352110(0x1f9),function(_0x1206aa){var _0x3de230=_0x352110;console[_0x3de230(0x1fa)](_0x3de230(0x1da),_0x1206aa);var _0x20a8c5=BlockchainScan+_0x1206aa;_0xf2286d='Transaction\x20Hash:\x20'+_0x3de230(0x36c)+_0x20a8c5+_0x3de230(0x28c)+_0x1206aa+_0x3de230(0x2b9),$(_0x3de230(0x30c))[_0x3de230(0x257)](_0xf2286d);})[_0x352110(0x212)](_0x352110(0x1d6),function(_0x1b8563){var _0x3b5a28=_0x352110;console[_0x3b5a28(0x1fa)](_0x3b5a28(0x38b),_0x1b8563),document[_0x3b5a28(0x28e)](_0x3b5a28(0x1eb))['style'][_0x3b5a28(0x25b)]=_0x3b5a28(0x297);var _0x1e2e8d=_0xf2286d+_0x3b5a28(0x2f9);$(_0x3b5a28(0x30c))['html'](_0x1e2e8d),$(_0x3b5a28(0x1f7))[_0x3b5a28(0x336)]();});}async function SendMultiToken(){var _0x444fa2=_0x37a211;if(CurrentTokenDecimals==0x0){$('#Tips')[_0x444fa2(0x257)](_0x444fa2(0x319)),$(_0x444fa2(0x2fc))[_0x444fa2(0x336)]();return;}var _0x289b94=document[_0x444fa2(0x28e)](_0x444fa2(0x32f));console[_0x444fa2(0x1fa)](_0x444fa2(0x378),_0x289b94);if(typeof FileReader===_0x444fa2(0x2f4)){$('#Tips')['html'](_0x444fa2(0x32c)),$(_0x444fa2(0x22f))[_0x444fa2(0x257)](''),$('#loader1')[_0x444fa2(0x336)]();return;}if(document[_0x444fa2(0x28e)](_0x444fa2(0x21f))['checked']&&(document[_0x444fa2(0x28e)](_0x444fa2(0x379))[_0x444fa2(0x352)]==''||document[_0x444fa2(0x28e)](_0x444fa2(0x2c8))[_0x444fa2(0x352)]=='')){$(_0x444fa2(0x374))[_0x444fa2(0x257)](_0x444fa2(0x38a)),$(_0x444fa2(0x2fc))['hide']();return;}console[_0x444fa2(0x1fa)](_0x444fa2(0x240),document[_0x444fa2(0x28e)]('MultiSendAmount')[_0x444fa2(0x352)]),console[_0x444fa2(0x1fa)](_0x444fa2(0x219),CurrentTokenDecimals),console[_0x444fa2(0x1fa)](_0x444fa2(0x31d),contractAdress);var _0x2881cd=[],_0x3eb3d5=[];if(document[_0x444fa2(0x28e)](_0x444fa2(0x21f))['checked']){var _0x2b2ebb=$('#AddressArea')[_0x444fa2(0x2de)]()['split'](/\n/);_0x2881cd=[],_0x3eb3d5=[];for(var _0x1f0933=0x0;_0x1f0933<_0x2b2ebb[_0x444fa2(0x344)];_0x1f0933++){/\S/[_0x444fa2(0x306)](_0x2b2ebb[_0x1f0933])&&(_0x2881cd['push']($[_0x444fa2(0x2ba)](_0x2b2ebb[_0x1f0933])),_0x3eb3d5[_0x444fa2(0x342)](BigInt(document[_0x444fa2(0x28e)](_0x444fa2(0x379))['value']*Math[_0x444fa2(0x285)](0xa,CurrentTokenDecimals['toString']()))[_0x444fa2(0x27d)]()));}}else{console['log'](_0x444fa2(0x330)),_0x2881cd=[],_0x3eb3d5=[];let _0x1e7078=await ReadCSVtoArray();console['log'](_0x444fa2(0x37c),_0x1e7078);if(typeof _0x1e7078==_0x444fa2(0x2f4)){console[_0x444fa2(0x1fa)](_0x444fa2(0x1f5)),$(_0x444fa2(0x374))[_0x444fa2(0x257)](_0x444fa2(0x237)),$(_0x444fa2(0x22f))[_0x444fa2(0x257)](''),$(_0x444fa2(0x2fc))[_0x444fa2(0x336)]();return;}else _0x2881cd=_0x1e7078[_0x444fa2(0x30a)],_0x3eb3d5=_0x1e7078['_AmountArray'];}console[_0x444fa2(0x1fa)](_0x444fa2(0x337),_0x2881cd),console[_0x444fa2(0x1fa)](_0x444fa2(0x35a),_0x3eb3d5),console[_0x444fa2(0x1fa)](_0x444fa2(0x2f5),contractAdress),_Contract=await new web3['eth'][(_0x444fa2(0x376))](SmartContractABI,contractAdress,{'from':web3[_0x444fa2(0x2ec)][_0x444fa2(0x389)]});var _0x302280=document[_0x444fa2(0x28e)]('TokenAddress')[_0x444fa2(0x352)],_0xee26f3=0x1d1a94a2001;console[_0x444fa2(0x1fa)]('FeeReciever:',FeeReciever);var _0x4abb12=await web3[_0x444fa2(0x37d)]['getGasPrice']();console[_0x444fa2(0x1fa)]('gasPrice:'+_0x4abb12);var _0x5c43b2,_0x903a9c=web3[_0x444fa2(0x26b)][_0x444fa2(0x315)](BeeFee[_0x444fa2(0x27d)]());console[_0x444fa2(0x1fa)]('Total\x20fee:',SendFee),console['log']('BeeFee:',BeeFee),console[_0x444fa2(0x1fa)]('ReferrerFee\x20wei:',_0x903a9c),console['log'](_0x444fa2(0x2cf),SendFee),await _Contract['methods'][_0x444fa2(0x2c5)](_0x2881cd,_0x3eb3d5,_0x302280,FeeReciever,_0x903a9c)[_0x444fa2(0x20f)]({'from':web3[_0x444fa2(0x2ec)][_0x444fa2(0x389)],'value':SendFee})['then'](function(_0x218ef3){_0x5c43b2=_0x218ef3;})[_0x444fa2(0x37f)](function(_0x4a0645){}),console[_0x444fa2(0x1fa)](_0x444fa2(0x2b4)+_0x5c43b2),document[_0x444fa2(0x28e)](_0x444fa2(0x320))[_0x444fa2(0x268)]?(console['log']('high\x20gas'),await _Contract[_0x444fa2(0x2cc)][_0x444fa2(0x2c5)](_0x2881cd,_0x3eb3d5,_0x302280,FeeReciever,_0x903a9c)[_0x444fa2(0x1e3)]({'from':web3['currentProvider']['selectedAddress'],'gas':_0x5c43b2,'gasPrice':_0x4abb12,'value':SendFee},function(_0xf7a4c2,_0x57c9ec){var _0x2dfacd=_0x444fa2;!_0xf7a4c2?console['log'](_0x2dfacd(0x269),_0x57c9ec):(console[_0x2dfacd(0x1fa)](_0x2dfacd(0x21a)),$(_0x2dfacd(0x2fc))['hide'](),_0xf7a4c2['message'][_0x2dfacd(0x255)](_0x2dfacd(0x309))&&(console[_0x2dfacd(0x1fa)](_0x2dfacd(0x309)),$(_0x2dfacd(0x2fc))['hide']()));})[_0x444fa2(0x212)](_0x444fa2(0x1f9),function(_0x4e9815){var _0x54ebc8=_0x444fa2;console[_0x54ebc8(0x1fa)](_0x54ebc8(0x1da),_0x4e9815);var _0x146979=BlockchainScan+_0x4e9815;$(_0x54ebc8(0x2a8))[_0x54ebc8(0x257)](_0x54ebc8(0x234)+_0x54ebc8(0x36c)+_0x146979+'\x20target=\x22_blank\x22>'+_0x4e9815+_0x54ebc8(0x23d));})[_0x444fa2(0x212)](_0x444fa2(0x1d6),function(_0xc455af){var _0xe5de1c=_0x444fa2;console[_0xe5de1c(0x1fa)](_0xe5de1c(0x38b),_0xc455af),document['getElementById'](_0xe5de1c(0x229))['style'][_0xe5de1c(0x25b)]=_0xe5de1c(0x297),$(_0xe5de1c(0x2fc))['hide']();})):(console[_0x444fa2(0x1fa)](_0x444fa2(0x226)),await _Contract[_0x444fa2(0x2cc)][_0x444fa2(0x2c5)](_0x2881cd,_0x3eb3d5,_0x302280,FeeReciever,_0x903a9c)[_0x444fa2(0x1e3)]({'from':web3['currentProvider'][_0x444fa2(0x389)],'value':SendFee},function(_0x205c51,_0x58cd68){var _0x588ddc=_0x444fa2;!_0x205c51?console[_0x588ddc(0x1fa)](_0x588ddc(0x269),_0x58cd68):(console[_0x588ddc(0x1fa)](_0x588ddc(0x21a)),$(_0x588ddc(0x2fc))[_0x588ddc(0x336)](),_0x205c51[_0x588ddc(0x25e)]['includes'](_0x588ddc(0x309))&&(console[_0x588ddc(0x1fa)](_0x588ddc(0x309)),$(_0x588ddc(0x2fc))['hide']()));})[_0x444fa2(0x212)]('transactionHash',function(_0x3af98b){var _0x2a76ea=_0x444fa2;console[_0x2a76ea(0x1fa)](_0x2a76ea(0x1da),_0x3af98b);var _0x16e0e9=BlockchainScan+_0x3af98b;$(_0x2a76ea(0x2a8))['html'](_0x2a76ea(0x234)+_0x2a76ea(0x36c)+_0x16e0e9+_0x2a76ea(0x28c)+_0x3af98b+_0x2a76ea(0x23d));})[_0x444fa2(0x212)](_0x444fa2(0x1d6),function(_0x313779){var _0x5916fb=_0x444fa2;console['log'](_0x5916fb(0x38b),_0x313779),document[_0x5916fb(0x28e)](_0x5916fb(0x229))[_0x5916fb(0x2ab)][_0x5916fb(0x25b)]=_0x5916fb(0x297),$(_0x5916fb(0x2fc))[_0x5916fb(0x336)]();}));}async function GetEndTime(){var _0xb9dff9=_0x37a211;await FactoryContract[_0xb9dff9(0x2cc)][_0xb9dff9(0x2b8)]()[_0xb9dff9(0x2ed)]({'from':web3[_0xb9dff9(0x2ec)][_0xb9dff9(0x389)]},function(_0x542346,_0x538e44){var _0x5d51e9=_0xb9dff9;if(!_0x542346){console[_0x5d51e9(0x1fa)](_0x5d51e9(0x2c9),_0x538e44);var _0x233999=_0x538e44+'000';TimeCount(_0x233999);}else console[_0x5d51e9(0x1fa)](_0x5d51e9(0x29a),_0x542346);});}async function GetRewardPool(){var _0x4513b3=_0x37a211;await FactoryContract[_0x4513b3(0x2cc)]['RewardPool']()['call']({'from':web3[_0x4513b3(0x2ec)][_0x4513b3(0x389)]},function(_0x39b8c2,_0x4e18e6){var _0x563487=_0x4513b3;!_0x39b8c2?(console[_0x563487(0x1fa)](_0x563487(0x1e6),_0x4e18e6),document['getElementById'](_0x563487(0x2dc))[_0x563487(0x2b6)]=_0x563487(0x201)+web3[_0x563487(0x26b)]['fromWei'](_0x4e18e6,_0x563487(0x349))):console[_0x563487(0x1fa)](_0x563487(0x31e),_0x39b8c2);});}function addZero(_0x38d13a){var _0x9ff52e=_0x37a211,_0x21d247=_0x38d13a+_0x9ff52e(0x2af);return _0x21d247;}function component(_0x21c5cf,_0x1c143f){return Math['floor'](_0x21c5cf/_0x1c143f);}function TimeCount(_0x4cd098){var _0xe18733=setInterval(function(){var _0x5d2d5e=_0x2132,_0x22ff3e=new Date()[_0x5d2d5e(0x391)](),_0x1b93c2=_0x4cd098-_0x22ff3e,_0x379029=Math['floor'](_0x1b93c2/(0x3e8*0x3c*0x3c*0x18)),_0x696915=Math['floor'](_0x1b93c2%(0x3e8*0x3c*0x3c*0x18)/(0x3e8*0x3c*0x3c)),_0x4655c5=Math[_0x5d2d5e(0x2ae)](_0x1b93c2%(0x3e8*0x3c*0x3c)/(0x3e8*0x3c)),_0x2c91d6=Math[_0x5d2d5e(0x2ae)](_0x1b93c2%(0x3e8*0x3c)/0x3e8);$('#days')[_0x5d2d5e(0x257)](_0x379029+_0x5d2d5e(0x31a)),$(_0x5d2d5e(0x307))[_0x5d2d5e(0x257)](_0x696915+_0x5d2d5e(0x2c3)),$(_0x5d2d5e(0x375))['html'](_0x4655c5+_0x5d2d5e(0x1df)),$(_0x5d2d5e(0x236))[_0x5d2d5e(0x257)](_0x2c91d6+_0x5d2d5e(0x321)),_0x1b93c2<0x0&&(clearInterval(_0xe18733),$(_0x5d2d5e(0x223))['html']('0'+_0x5d2d5e(0x31a)),$('#hours')[_0x5d2d5e(0x257)]('0'+'<span>Hours</span>'),$(_0x5d2d5e(0x375))[_0x5d2d5e(0x257)]('0'+_0x5d2d5e(0x1df)),$(_0x5d2d5e(0x236))[_0x5d2d5e(0x257)]('0'+'<span>Seconds</span>'),$(_0x5d2d5e(0x2b5))['show']());},0x3e8);}async function SelectStackContract(){}async function detectEthereumNetwork(_0x316bcc){var _0x1f1eee=_0x37a211,_0x18de59={'chainName':_0x1f1eee(0x2ff),'chainxName':_0x1f1eee(0x258),'symbol':_0x1f1eee(0x258),'rpcUrls':_0x1f1eee(0x30e),'blockExplorerUrls':'https://bscscan.com/'},_0x1b5e79={'chainName':_0x1f1eee(0x203),'chainxName':_0x1f1eee(0x340),'symbol':'MATIC','rpcUrls':_0x1f1eee(0x243),'blockExplorerUrls':_0x1f1eee(0x31b)},_0x2a9da0={'chainName':_0x1f1eee(0x37b),'chainxName':'HT','symbol':'HT','rpcUrls':_0x1f1eee(0x1dc),'blockExplorerUrls':_0x1f1eee(0x1fd)},_0x5df493={'chainName':_0x1f1eee(0x32b),'chainxName':_0x1f1eee(0x272),'symbol':_0x1f1eee(0x272),'rpcUrls':_0x1f1eee(0x26d),'blockExplorerUrls':'https://ftmscan.com'},_0x15ff72=ISendobj[_0x1f1eee(0x249)][ISendobj[_0x1f1eee(0x266)]]['value'],_0x7aafe3=await web3[_0x1f1eee(0x37d)]['net'][_0x1f1eee(0x271)]();console['log'](_0x1f1eee(0x2e7),_0x7aafe3);var _0x45a24d;if(_0x15ff72==0x38)_0x45a24d=_0x18de59;else{if(_0x15ff72==0x80)_0x45a24d=_0x2a9da0;else{if(_0x15ff72==0x89)_0x45a24d=_0x1b5e79;else _0x15ff72==0xfa&&(_0x45a24d=_0x5df493);}}if(_0x7aafe3==ISendobj[_0x1f1eee(0x249)][ISendobj[_0x1f1eee(0x266)]][_0x1f1eee(0x352)]&&_0x7aafe3!=0x13881)return console[_0x1f1eee(0x1fa)](_0x1f1eee(0x377)),!![];try{$(_0x1f1eee(0x374))[_0x1f1eee(0x257)](_0x1f1eee(0x220)),await window['ethereum'][_0x1f1eee(0x387)]({'method':_0x1f1eee(0x383),'params':[{'chainId':'0x'+decimalToHexString(parseInt(_0x316bcc))}]}),window[_0x1f1eee(0x34f)][_0x1f1eee(0x2b0)]();}catch(_0x2fa84b){console[_0x1f1eee(0x1fa)](_0x1f1eee(0x264),_0x2fa84b['code']);if(_0x2fa84b[_0x1f1eee(0x38e)]==0x1326)try{console[_0x1f1eee(0x1fa)](_0x1f1eee(0x278),_0x2fa84b[_0x1f1eee(0x38e)]),await window[_0x1f1eee(0x302)][_0x1f1eee(0x387)]({'method':'wallet_addEthereumChain','params':[{'chainId':'0x'+decimalToHexString(parseInt(_0x316bcc)),'chainName':_0x45a24d[_0x1f1eee(0x221)],'nativeCurrency':{'name':_0x45a24d['chainxName'],'symbol':_0x45a24d['symbol'],'decimals':0x12},'rpcUrls':[_0x45a24d[_0x1f1eee(0x354)]],'blockExplorerUrls':[_0x45a24d[_0x1f1eee(0x24a)]]}]});return![];window[_0x1f1eee(0x34f)][_0x1f1eee(0x2b0)]();}catch(_0x2b848a){if(_0x2b848a[_0x1f1eee(0x38e)]==0xfa1)return console[_0x1f1eee(0x1fa)](_0x1f1eee(0x2aa),_0x2b848a[_0x1f1eee(0x25e)]),$(_0x1f1eee(0x2fc))['hide'](),$(_0x1f1eee(0x374))[_0x1f1eee(0x257)](''),![];}else{if(_0x2fa84b[_0x1f1eee(0x38e)]==0xfa1)return console['log'](_0x1f1eee(0x2bd),_0x2fa84b[_0x1f1eee(0x25e)]),$(_0x1f1eee(0x2fc))[_0x1f1eee(0x336)](),$('#Tips')['html'](''),![];}}$('#Tips')['html']('');}async function ChooseNetwork(_0x1a5ce9){var _0x5c1e8c=_0x37a211;switch(_0x1a5ce9){case'1':console['log'](_0x5c1e8c(0x350));break;case'2':console[_0x5c1e8c(0x1fa)](_0x5c1e8c(0x2b3));break;case'3':console[_0x5c1e8c(0x1fa)](_0x5c1e8c(0x332)),TokenContractAddress=RopstenTokenAddress,contractAdress=RopstenAddress;break;case'42':console[_0x5c1e8c(0x1fa)](_0x5c1e8c(0x2cd)),TokenContractAddress=KovanTokenAddress,contractAdress=KovanAddress;break;case'56':contractAdress=BinanceContractAddress,TokenContractAddress=binanceTokenAddress,console[_0x5c1e8c(0x1fa)](_0x5c1e8c(0x25d));break;case'97':contractAdress=BinanceTestContractAddress,console[_0x5c1e8c(0x1fa)](_0x5c1e8c(0x322));break;case _0x5c1e8c(0x2b7):contractAdress=PolygonContractAddress,TokenContractAddress=polygonTokenAddress,console[_0x5c1e8c(0x1fa)]('This\x20is\x20the\x20Polygon\x20network.');break;case'250':contractAdress=FantomContractAddress,TokenContractAddress=fantomTokenAddress,console[_0x5c1e8c(0x1fa)](_0x5c1e8c(0x2a9));break;default:console[_0x5c1e8c(0x1fa)](_0x5c1e8c(0x311));return![];}}function decimalToHexString(_0x341693){var _0x3fc489=_0x37a211;return _0x341693<0x0&&(_0x341693=0xffffffff+_0x341693+0x1),_0x341693[_0x3fc489(0x27d)](0x10)['toUpperCase']();}function ISendInputChange(){var _0x564fe5=_0x37a211;parseFloat(document['getElementById'](_0x564fe5(0x28a))[_0x564fe5(0x352)])>0x2&&(document[_0x564fe5(0x28e)](_0x564fe5(0x2cb))[_0x564fe5(0x352)]=parseInt(document[_0x564fe5(0x28e)](_0x564fe5(0x28a))[_0x564fe5(0x352)]),document[_0x564fe5(0x28e)]('ISendInput')[_0x564fe5(0x352)]=parseInt(document[_0x564fe5(0x28e)](_0x564fe5(0x28a))[_0x564fe5(0x352)]),$(_0x564fe5(0x2a1))['html'](_0x564fe5(0x301)+(parseInt(document['getElementById'](_0x564fe5(0x28a))[_0x564fe5(0x352)])+0x1)+'\x20USDT'),console[_0x564fe5(0x1fa)](_0x564fe5(0x35d)),console['log'](_0x564fe5(0x2f0),polygonLimit),console['log'](_0x564fe5(0x252),binanceLimit),console[_0x564fe5(0x1fa)](_0x564fe5(0x2d4),fantomLimit));}async function approveThis(_0x15d6d0){var _0x2aee52=_0x37a211;try{const _0x4061e8=web3[_0x2aee52(0x26b)][_0x2aee52(0x238)](document[_0x2aee52(0x28e)](_0x2aee52(0x32a))[_0x2aee52(0x352)]);}catch(_0x233471){console[_0x2aee52(0x284)](_0x2aee52(0x28b),_0x233471[_0x2aee52(0x25e)]),TokenContractAddress=document[_0x2aee52(0x28e)](_0x2aee52(0x32a))['value'],document[_0x2aee52(0x28e)]('TokenAddress')['disabled']=![];return;};$(_0x2aee52(0x1f7))[_0x2aee52(0x20b)]();var _0x28fdf9=document['getElementById'](_0x2aee52(0x32a))[_0x2aee52(0x352)];TokenContract=await new web3[(_0x2aee52(0x37d))][(_0x2aee52(0x376))](TokenSmartContractABI,_0x28fdf9,{'from':web3[_0x2aee52(0x2ec)][_0x2aee52(0x389)]});const _0x29efc3=await TokenContract[_0x2aee52(0x2cc)][_0x2aee52(0x338)](_0x15d6d0,'0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')[_0x2aee52(0x1e3)]({'from':web3[_0x2aee52(0x2ec)][_0x2aee52(0x389)]},function(_0x1af4a5,_0x375ce6){var _0x48904e=_0x2aee52;!_0x1af4a5?console[_0x48904e(0x1fa)]('Approval\x20successfull!'):($('#loader2')[_0x48904e(0x336)](),console[_0x48904e(0x1fa)](_0x48904e(0x295)));})[_0x2aee52(0x212)](_0x2aee52(0x1f9),function(_0x5e9400){var _0x595cb3=_0x2aee52;console[_0x595cb3(0x1fa)](_0x595cb3(0x35e),_0x5e9400);})[_0x2aee52(0x212)](_0x2aee52(0x1d6),function(_0x45c8ed){var _0x35ec7a=_0x2aee52;console[_0x35ec7a(0x1fa)](_0x35ec7a(0x2a3),_0x45c8ed),$(_0x35ec7a(0x25f))[_0x35ec7a(0x336)](),$(_0x35ec7a(0x38d))['show'](),$(_0x35ec7a(0x1f7))[_0x35ec7a(0x336)]();});}async function getApproveStatus(_0x3f9c77,_0x4fc788){var _0x19dbcc=_0x37a211;await TokenContract[_0x19dbcc(0x2cc)]['allowance'](_0x3f9c77,_0x4fc788)[_0x19dbcc(0x2ed)]({'from':web3['currentProvider'][_0x19dbcc(0x389)]},function(_0x222464,_0x508272){var _0x20eb4c=_0x19dbcc;!_0x222464&&(console['log'](_0x20eb4c(0x363),_0x508272),_0x508272>0x0?($(_0x20eb4c(0x25f))[_0x20eb4c(0x336)](),$(_0x20eb4c(0x38d))[_0x20eb4c(0x20b)](),document[_0x20eb4c(0x28e)](_0x20eb4c(0x32a))[_0x20eb4c(0x356)]=![],console[_0x20eb4c(0x1fa)](_0x20eb4c(0x2fa))):($(_0x20eb4c(0x25f))[_0x20eb4c(0x20b)](),$(_0x20eb4c(0x38d))[_0x20eb4c(0x336)](),document['getElementById']('TokenAddress')['disabled']=![],console['log'](_0x20eb4c(0x33e))));});}async function balanceOf(_0x1f349d,_0x34bf2e){var _0x5dd00a=_0x37a211;$('#balanceOf')[_0x5dd00a(0x257)](_0x5dd00a(0x29d)),await _0x34bf2e[_0x5dd00a(0x2cc)]['balanceOf'](_0x1f349d)[_0x5dd00a(0x2ed)]({'from':web3['currentProvider'][_0x5dd00a(0x389)]},function(_0x47d843,_0x2ce23c){var _0xb8a443=_0x5dd00a;!_0x47d843?(console[_0xb8a443(0x1fa)]('balanceOf:',_0x2ce23c),_0x34bf2e['methods'][_0xb8a443(0x36d)]()['call'](function(_0x498ee2,_0x12e4f4){var _0x3a676e=_0xb8a443,_0x248b19=parseInt(_0x2ce23c),_0x3fce93=Math['pow'](0xa,parseInt(_0x12e4f4)),_0x14ebdb=_0x248b19/_0x3fce93;console[_0x3a676e(0x1fa)](_0x3a676e(0x353),_0x14ebdb);var _0x2c7c9a=_0x3a676e(0x1f1);if(document[_0x3a676e(0x28e)](_0x3a676e(0x2dd))[_0x3a676e(0x352)]==0x38)_0x2c7c9a='https://bscscan.com/address/0x55d398326f99059ff775485246999027b3197955';else{if(document[_0x3a676e(0x28e)](_0x3a676e(0x2dd))['value']==0x89)_0x2c7c9a='https://polygonscan.com/address/0xc2132d05d31c914a87c6611c10748aeb04b58e8f';else document[_0x3a676e(0x28e)]('SelectISend')[_0x3a676e(0x352)]==0xfa&&(_0x2c7c9a=_0x3a676e(0x1d8));}$(_0x3a676e(0x2d6))[_0x3a676e(0x257)]('Balance:'+_0x14ebdb),CurrentTokenDecimals=BigInt(_0x12e4f4),console[_0x3a676e(0x1fa)]('TokenDecimals:',_0x12e4f4),console['log'](_0x3a676e(0x316),_0x3fce93),console[_0x3a676e(0x1fa)]('balance:',BigInt(_0x248b19));})):($('#balanceOf')[_0xb8a443(0x257)](_0xb8a443(0x1f6)),document[_0xb8a443(0x28e)]('TokenAddress')['disabled']=![],console[_0xb8a443(0x1fa)]('balanceOf\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract'));});}function SendType(_0x5498e5){var _0x19c6d4=_0x37a211;if(_0x5498e5=='SameAmount')console[_0x19c6d4(0x1fa)](_0x19c6d4(0x2bf),_0x5498e5),document[_0x19c6d4(0x28e)](_0x19c6d4(0x21f))[_0x19c6d4(0x268)]=!![],document[_0x19c6d4(0x28e)](_0x19c6d4(0x308))[_0x19c6d4(0x268)]=![],$(_0x19c6d4(0x287))['show'](),$(_0x19c6d4(0x362))[_0x19c6d4(0x336)](),$(_0x19c6d4(0x22f))[_0x19c6d4(0x257)](''),$(_0x19c6d4(0x374))[_0x19c6d4(0x257)]('');else _0x5498e5==_0x19c6d4(0x24f)&&(console['log'](_0x19c6d4(0x2bf),_0x5498e5),document[_0x19c6d4(0x28e)](_0x19c6d4(0x21f))[_0x19c6d4(0x268)]=![],document[_0x19c6d4(0x28e)](_0x19c6d4(0x308))[_0x19c6d4(0x268)]=!![],$(_0x19c6d4(0x287))['hide'](),$(_0x19c6d4(0x362))['show'](),Upload());}function checkRadio(_0x1c9b2c){var _0x4781bd=_0x37a211;if(_0x1c9b2c==_0x4781bd(0x392))console['log'](_0x4781bd(0x2bf),_0x1c9b2c),document[_0x4781bd(0x28e)](_0x4781bd(0x320))[_0x4781bd(0x268)]=!![],document[_0x4781bd(0x28e)]('multiple-variable-equations')['checked']=![],UseHighGasFee=!![],console[_0x4781bd(0x1fa)](_0x4781bd(0x2a4),UseHighGasFee);else _0x1c9b2c==_0x4781bd(0x235)&&(console['log'](_0x4781bd(0x2bf),_0x1c9b2c),document[_0x4781bd(0x28e)](_0x4781bd(0x263))['checked']=!![],document[_0x4781bd(0x28e)]('one-variable-equations')[_0x4781bd(0x268)]=![],UseHighGasFee=![],console['log'](_0x4781bd(0x2a4),UseHighGasFee));}var SelectISendIMGSelectBox=document[_0x37a211(0x28e)](_0x37a211(0x2dd)),SelectISendIMG=document[_0x37a211(0x28e)]('SelectISendIMG');SelectISendIMG[_0x37a211(0x2c1)]=_0x37a211(0x369),SelectISendIMGSelectBox[_0x37a211(0x317)](_0x37a211(0x2d7),function(){var _0x2ecf91=_0x37a211;SelectISendIMG['src']=_0x2ecf91(0x217)+this[_0x2ecf91(0x249)][this['selectedIndex']][_0x2ecf91(0x352)]+'.png';},![]);function Upload(){var _0x559872=_0x37a211,_0x16d195=document['getElementById'](_0x559872(0x32f)),_0x35a7d2=/^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;if(_0x35a7d2[_0x559872(0x306)](_0x16d195[_0x559872(0x352)][_0x559872(0x2f7)]())){if(typeof FileReader!=_0x559872(0x2f4)){var _0x3744ea=new FileReader();_0x3744ea[_0x559872(0x2c0)]=function(_0x416d4e){var _0x33dee0=_0x559872,_0x52cf45=document[_0x33dee0(0x1ee)]('table'),_0x327161=_0x416d4e['target'][_0x33dee0(0x2be)]['split']('\x0a');for(var _0x1a5c36=0x0;_0x1a5c36<_0x327161['length'];_0x1a5c36++){var _0x8d709a=_0x52cf45[_0x33dee0(0x348)](-0x1),_0x3e920a=_0x327161[_0x1a5c36][_0x33dee0(0x205)](',');for(var _0xd85004=0x0;_0xd85004<_0x3e920a[_0x33dee0(0x344)];_0xd85004++){var _0x33e1de=_0x8d709a[_0x33dee0(0x31c)](-0x1);_0x33e1de[_0x33dee0(0x2b6)]=_0x3e920a[_0xd85004];}}var _0x576cb2=document[_0x33dee0(0x28e)](_0x33dee0(0x384));_0x576cb2[_0x33dee0(0x2b6)]='',_0x576cb2[_0x33dee0(0x1fc)](_0x52cf45);},_0x3744ea[_0x559872(0x31f)](_0x16d195[_0x559872(0x290)][0x0]);}else $(_0x559872(0x374))[_0x559872(0x257)](_0x559872(0x26a)),$(_0x559872(0x2fc))[_0x559872(0x336)]();}else $(_0x559872(0x374))[_0x559872(0x257)]('Please\x20choose\x20a\x20valid\x20CSV\x20file,\x20CSV\x20file\x20name\x20are\x20English\x20letters\x20only,like:\x20abc123.csv'),$('#loader1')['hide']();}function multiply(_0x5be13f,_0x411d5e){var _0x454752=_0x37a211;let _0x520822=0x0,_0x2565d5=0x0;_0x5be13f<0x9&&(_0x5be13f*=0xa,_0x520822=0x1);_0x411d5e<0x9&&(_0x411d5e*=0xa,_0x2565d5=0x1);let _0x170690=_0x5be13f[_0x454752(0x344)],_0x456366=_0x411d5e[_0x454752(0x344)],_0x1d19e0=[],_0x5241e8=[];console[_0x454752(0x1fa)](_0x5be13f,_0x411d5e);while(_0x5be13f[_0x454752(0x344)]>0x7){_0x1d19e0[_0x454752(0x342)](_0x5be13f[_0x454752(0x225)](_0x5be13f['length']-0x7,_0x5be13f[_0x454752(0x344)])),_0x5be13f=_0x5be13f['substring'](0x0,_0x5be13f[_0x454752(0x344)]-0x7);}_0x1d19e0[_0x454752(0x342)](_0x5be13f);while(_0x411d5e[_0x454752(0x344)]>0x7){_0x5241e8[_0x454752(0x342)](_0x411d5e[_0x454752(0x225)](_0x411d5e[_0x454752(0x344)]-0x7,_0x411d5e['length'])),_0x411d5e=_0x411d5e[_0x454752(0x225)](0x0,_0x411d5e[_0x454752(0x344)]-0x7);}_0x5241e8[_0x454752(0x342)](_0x411d5e),_0x1d19e0=_0x1d19e0[_0x454752(0x23a)](),_0x5241e8=_0x5241e8[_0x454752(0x23a)](),console[_0x454752(0x1fa)](_0x1d19e0,_0x5241e8);let _0x20c4d1=[];for(var _0x19c379=_0x1d19e0[_0x454752(0x344)]-0x1,_0x23b54a=0x0;_0x19c379>=0x0;_0x19c379--,_0x23b54a++){_0x20c4d1[_0x23b54a]=_0x5241e8[_0x454752(0x2ea)](_0x4da276=>_0x4da276*_0x1d19e0[_0x19c379]===NaN?_0x454752(0x1e5):_0x4da276*_0x1d19e0[_0x19c379]);var _0x36e33d=0x0;while(_0x36e33d<_0x23b54a){_0x20c4d1[_0x23b54a][_0x454752(0x342)](0x0),_0x36e33d+=0x1;}}console[_0x454752(0x1fa)](_0x20c4d1);var _0x373513=_0x20c4d1[_0x20c4d1[_0x454752(0x344)]-0x1];for(var _0x23b54a=0x1;_0x23b54a<_0x373513['length'];_0x23b54a++){for(var _0x19c379=0x0;_0x19c379<_0x20c4d1[_0x454752(0x344)]-0x1;_0x19c379++){_0x20c4d1[_0x19c379][_0x454752(0x344)]>=_0x23b54a&&(_0x373513[_0x373513['length']-_0x23b54a]+=_0x20c4d1[_0x19c379][_0x20c4d1[_0x19c379]['length']-_0x23b54a]);}}console[_0x454752(0x1fa)](_0x373513);let _0x19313f=[];for(var _0x19c379=0x0;_0x19c379<_0x373513['length'];_0x19c379++){_0x19313f[_0x454752(0x342)]('');}for(var _0x19c379=0x1;_0x19c379<=_0x373513[_0x454752(0x344)];_0x19c379++)if(_0x19c379!==_0x373513[_0x454752(0x344)])_0x19313f[_0x19313f['length']-_0x19c379]=_0x373513[_0x373513[_0x454752(0x344)]-_0x19c379][_0x454752(0x27d)]()['substring'](_0x373513[_0x373513[_0x454752(0x344)]-_0x19c379][_0x454752(0x27d)]()[_0x454752(0x344)]-0x7,_0x373513[_0x373513['length']-_0x19c379]['toString']()['length']),_0x373513[_0x373513[_0x454752(0x344)]-_0x19c379-0x1]+=parseInt(_0x373513[_0x373513[_0x454752(0x344)]-_0x19c379][_0x454752(0x27d)]()[_0x454752(0x225)](0x0,_0x373513[_0x373513[_0x454752(0x344)]-_0x19c379][_0x454752(0x27d)]()['length']-0x7));else _0x19313f[0x0]=_0x373513[0x0];return console[_0x454752(0x1fa)](_0x19313f),console[_0x454752(0x1fa)](_0x5be13f,_0x411d5e),_0x520822&&(_0x19313f[_0x19313f[_0x454752(0x344)]-0x1]/=0xa),_0x2565d5&&(_0x19313f[_0x19313f[_0x454752(0x344)]-0x1]/=0xa),_0x19313f[_0x454752(0x211)]('');}async function ShowCreateNFTCard(){var _0x4574f8=_0x37a211;document['getElementById'](_0x4574f8(0x2ef))[_0x4574f8(0x352)]='',document[_0x4574f8(0x28e)](_0x4574f8(0x20c))['value']='',document[_0x4574f8(0x28e)](_0x4574f8(0x35f))[_0x4574f8(0x352)]='',document[_0x4574f8(0x28e)](_0x4574f8(0x2a5))['value']='',document[_0x4574f8(0x28e)](_0x4574f8(0x1d7))[_0x4574f8(0x352)]='',$(_0x4574f8(0x374))[_0x4574f8(0x257)](''),$('#CreateNFTtransactionHashLabel')['html'](''),$(_0x4574f8(0x1f8))['show'](),$(_0x4574f8(0x206))[_0x4574f8(0x336)](),$(_0x4574f8(0x2c4))[_0x4574f8(0x336)](),$(_0x4574f8(0x213))['hide']();}async function ReadCSVtoArray(){var _0x558acc=_0x37a211;let _0x4ab2b9=[],_0x37a037=[];var _0x8bf308=document[_0x558acc(0x28e)](_0x558acc(0x32f)),_0x57d1b7=/^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;if(_0x57d1b7[_0x558acc(0x306)](_0x8bf308[_0x558acc(0x352)]['toLowerCase']())){if(typeof FileReader!=_0x558acc(0x2f4)){var _0x55b2de=new FileReader();return _0x55b2de[_0x558acc(0x2c0)]=function(_0x1ae162){var _0x4de8ef=_0x558acc,_0xba7d1c=document[_0x4de8ef(0x1ee)]('table'),_0x220cca=_0x1ae162[_0x4de8ef(0x314)][_0x4de8ef(0x2be)][_0x4de8ef(0x205)]('\x0a');for(var _0x1be333=0x0;_0x1be333<_0x220cca[_0x4de8ef(0x344)];_0x1be333++){var _0x2d60ab=_0xba7d1c[_0x4de8ef(0x348)](-0x1),_0x2f14c8=_0x220cca[_0x1be333][_0x4de8ef(0x205)](',');if(_0x2f14c8[0x0]!=''&&_0x2f14c8[0x1]!=''){_0x4ab2b9[_0x4de8ef(0x342)]($[_0x4de8ef(0x2ba)](_0x2f14c8[0x0]));var _0x5de235=BigNumber((_0x2f14c8[0x1]*Math[_0x4de8ef(0x285)](0xa,CurrentTokenDecimals[_0x4de8ef(0x27d)]()))[_0x4de8ef(0x27d)]()),_0x2ec661=web3[_0x4de8ef(0x26b)][_0x4de8ef(0x25c)](_0x5de235);console[_0x4de8ef(0x1fa)](_0x4de8ef(0x1fb),_0x2ec661),_0x37a037[_0x4de8ef(0x342)](_0x2ec661);}for(var _0x1acbdc=0x0;_0x1acbdc<_0x2f14c8[_0x4de8ef(0x344)];_0x1acbdc++){var _0x35bdc3=_0x2d60ab[_0x4de8ef(0x31c)](-0x1);_0x35bdc3[_0x4de8ef(0x2b6)]=_0x2f14c8[_0x1acbdc];}}var _0x1e75e1=document[_0x4de8ef(0x28e)](_0x4de8ef(0x384));_0x1e75e1[_0x4de8ef(0x2b6)]='',_0x1e75e1[_0x4de8ef(0x1fc)](_0xba7d1c);},_0x55b2de['readAsText'](_0x8bf308['files'][0x0]),{'_AddressArray':_0x4ab2b9,'_AmountArray':_0x37a037};}else $(_0x558acc(0x374))[_0x558acc(0x257)](_0x558acc(0x26a)),$('#loader1')[_0x558acc(0x336)]();}else $(_0x558acc(0x374))[_0x558acc(0x257)](_0x558acc(0x1e4)),$(_0x558acc(0x2fc))[_0x558acc(0x336)]();}$(_0x37a211(0x2d2))[_0x37a211(0x2d7)](function(){var _0x12c4ba=_0x37a211;$(_0x12c4ba(0x2a8))[_0x12c4ba(0x257)](''),$(_0x12c4ba(0x374))['html']('');}),$(_0x37a211(0x20e))['change'](function(){var _0x202a06=_0x37a211;$(_0x202a06(0x1dd))[_0x202a06(0x257)](''),console[_0x202a06(0x1fa)](_0x202a06(0x29e)),console[_0x202a06(0x1fa)](_0x202a06(0x33d),document[_0x202a06(0x28e)](_0x202a06(0x372))['files']);for(const _0x588c57 of document[_0x202a06(0x28e)](_0x202a06(0x372))[_0x202a06(0x290)]){console['log'](_0x202a06(0x35b),_0x588c57['name']);}});function Mint(){var _0x5ade97=_0x37a211;console[_0x5ade97(0x1fa)]('Mint....');}function ISendChange(){var _0x270393=_0x37a211;ISendobj=document[_0x270393(0x28e)](_0x270393(0x2dd)),IWantobj=document[_0x270393(0x28e)](_0x270393(0x34d)),console[_0x270393(0x1fa)](ISendobj[_0x270393(0x249)][ISendobj[_0x270393(0x266)]][_0x270393(0x352)]),detectEthereumNetwork(ISendobj[_0x270393(0x249)][ISendobj[_0x270393(0x266)]][_0x270393(0x352)]);}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
